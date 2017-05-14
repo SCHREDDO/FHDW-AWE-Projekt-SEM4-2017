@@ -6,9 +6,10 @@ public class Lecturer extends Person{
 	
 	public Lecturer() {
 		super();
+		
+		leid = 0;
+		is_honouree_lecturer = false;
 	}
-	
-	
 	
 	public int getLeid() {
 		return leid;

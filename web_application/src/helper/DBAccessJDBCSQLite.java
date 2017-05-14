@@ -6,21 +6,51 @@ import java.sql.*;
 
 public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	
-	public enum TableName {
-		AdministrationEmployee,
-		Lecturer,
-		Modul,
-		ModulLecturer,
-		Person,
-		Right,
-		Student,
-		StudyGroup
+	public enum TableName 
+	{
+		administration_employee,
+		grade,
+		lecturer,
+		modul,
+		modul_lecturer,
+		module_lecturer_study_group,
+		person,
+		right,
+		student,
+		study_group;
+
+		public static int valueOf(TableName tableName) {
+			TableName[] temp = TableName.values();
+			int index = -1;
+			
+			for (int i = 0; i < temp.length; i++) 
+			{
+				if (tableName.equals(temp[i]))
+				{
+					index = i;
+				}
+			}
+			return index;
+		}
 	}
 	
-	private TableName tableName = TableName.AdministrationEmployee;
-    private String url = "jdbc:sqlite:/";
+	public enum TableID
+	{
+		aeid,
+		grid, 
+		leid, 
+		moid, 
+		mlid,
+		msid,
+		peid,
+		riid, 
+		stid, 
+		sgid 
+	}
+	
+	private TableName tableName = TableName.administration_employee;
+    private String url = "jdbc:sqlite:/SQLite/database";
     private Connection dB = null;
-    private PreparedStatement statement;
 	
 	public DBAccessJDBCSQLite() 
 	{
@@ -31,6 +61,9 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	{
 		try
 		{
+			Class.forName("org.sqlite.JDBC");
+			setDB(DriverManager.getConnection(getUrl()));
+			
 			System.out.println("Connected to database.");
 		}
 		catch (Exception e) 
@@ -42,7 +75,6 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		return true;
 	}
 	
-	
 	/**
 	 * @param tableName
 	 * Name der Tabelle
@@ -52,15 +84,17 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectData(TableName tableName)
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select * from ?";
+		String sql = "select * from $TableName";
 		
 		setTableName(tableName);
 		
+		sql = sql.replace("$TableName", getTableName().toString());
+		PreparedStatement statement;
+		
 		try 
-		{
-			 setStatement(getDB().prepareStatement(sql));
-			 getStatement().setString(1, getTableName().toString());
-			 temp = GetResultToObjectData(getStatement().executeQuery());
+		{			
+			statement = getDB().prepareStatement(sql);
+			temp = GetResultToObjectData(statement.executeQuery());
 		} 
 		catch (Exception e)
 		{
@@ -70,30 +104,333 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		return temp;
 	}
 	
-	/**
-	 * @param data
-	 * Daten die in die Tabellen sollen.
-	 * @param tableName
-	 * Tabellen Namen.
-	 * @return
-	 * true = ok
-	 * false = fehler
-	 * @info Fügt Daten in eine Tabelle.
-	 */
-	public Boolean insertInto(List<Object[]> data, TableName tableName)
+	public List<Object[]> getObjectDataByID(TableName tableName, int id)
 	{
-		String sql = "insert into ";
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select * from $TableName where $IDName = ?";
 		
 		setTableName(tableName);
 		
-		try
+		sql = sql.replace("$TableName", getTableName().toString());
+		sql = sql.replace("$IDName", TableID.values()[TableName.valueOf(getTableName())].toString());
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			statement.setInt(1, id);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
 		{
-			 setStatement(getDB().prepareStatement(sql));
-			 
-			 
-			 getStatement().setString(1, getTableName().toString());
-			 //setcolums()
-			 getStatement().executeQuery();
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+	
+	public List<Object[]> getObjectDataPersonStudent()
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select peid, riid, firstname, larstname, short, password, e_mail,address, phone_number, stid, peid, sgid, matrikelnumber from person, student";
+		
+		setTableName(tableName);
+		
+		sql = sql.replace("$TableName", getTableName().toString());
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+	
+	public List<Object[]> getObjectDataPersonLecturer()
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select peid, riid, firstname, larstname, short, password, e_mail, address, phone_number, leid, peid, is_honouree_lecturer from person, lecturer";
+		
+		setTableName(tableName);
+		
+		sql = sql.replace("$TableName", getTableName().toString());
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+	
+	public List<Object[]> getObjectDataPersonAdministrationEmployee()
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select peid, riid, firstname, larstname, short, password, e_mail, address, phone_number, aeid, peid, task_area from person, administration_employee";
+		
+		setTableName(tableName);
+		
+		sql = sql.replace("$TableName", getTableName().toString());
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+
+	public Boolean insertIntoAdministrationEmployee(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (peid, task_area) VALUES (?, ?)";
+
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		return true;
+	}
+
+	public Boolean insertIntoGrade(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (stid, mlid, gradenumber, gradepercent) VALUES (?, ?, ?, ?)";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			statement.setInt(4, (int)temp[4]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		return true;
+	}
+
+	public Boolean insertIntoLecturer(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (peid, is_honouree_lecturer) VALUES (?, ?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+		
+		return true;
+	}
+
+	public Boolean insertIntoModul(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (name, short, creditpoints) VALUES (?, ?, ?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setString(1, (String)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+		
+		return true;
+	}
+
+	public Boolean insertIntoModulLecturer(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (moid, leid) VALUES (?, ?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		
+		return true;
+	}
+
+	public Boolean insertIntoPerson(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (riid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			statement.setString(3, (String)temp[3]);
+			statement.setString(4, (String)temp[4]);
+			statement.setString(5, (String)temp[5]);
+			statement.setString(6, (String)temp[6]);
+			statement.setString(7, (String)temp[7]);
+			statement.setInt(8, (int)temp[8]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		return true;
+	}
+
+	public Boolean insertIntoRight(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (name) VALUES (?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setString(1, (String)temp[1]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+		
+		return true;
+	}
+
+	public Boolean insertIntoStudent(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (peid, sgid, matrikelnumber) VALUES (?, ?, ?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(1, (int)temp[2]);
+			statement.setInt(1, (int)temp[3]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+		
+		return true;
+	}
+
+	public Boolean insertIntoStudyGroup(List<Object[]> data)
+	{
+		String sql = "INSERT INTO $TableName (short) VALUES (?)";
+		
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setString(1, (String)temp[1]);
+			
+			statement.executeQuery();
 		} 
 		catch (Exception e)
 		{
@@ -104,27 +441,23 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		return true;
 	}
 	
-	/**
-	 * @param data
-	 * Daten die Geupdatet werden sollen.
-	 * @param tableName
-	 * Tabellen Namen
-	 * @return
-	 * true = ok
-	 * false = fehler
-	 * @info Updatet Daten in eine Tabelle.
-	 */
-	public Boolean update(List<Object[]> data, TableName tableName)
+	public Boolean insertIntoModuleLecturerStudyGroup(List<Object[]> data)
 	{
-		String sql = "insert into ";
+		String sql = "INSERT INTO $TableName (sgid, moid, leid) VALUES (?, ?, ?)";
 		
-		setTableName(tableName);
-		
+		PreparedStatement statement;
+			
 		try 
-		{
-			 setStatement(getDB().prepareStatement(sql));
-			 //setcloums
-			 getStatement().executeQuery();
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			
+			statement.executeQuery();
 		} 
 		catch (Exception e)
 		{
@@ -132,6 +465,285 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			return false;
 		}
 		
+		return true;
+	}
+
+	public Boolean updateAdministrationEmployee(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET peid = ?, task_area = ? WHERE aeid = ?";
+			
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(3, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		return true;
+	}
+
+	public Boolean updateGrade(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET stid = ?, mlid = ?, gradenumber = ?, gradepercent = ? WHERE grid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(5, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			statement.setInt(4, (int)temp[4]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updateLecturer(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET peid = ?, is_honouree_lecturer = ? WHERE leid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(3, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updateModul(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET name = ?, short = ?, creditpoints = ? WHERE moid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(4, (int)temp[0]);
+			statement.setString(1, (String)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updateModulLecturer(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET moid = ?, leid = ? WHERE mlid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(3, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updatePerson(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET riid = ?, firstname = ?, larstname = ?, short = ?, password = ?, e_mail = ?, address = ?, phone_number = ?  WHERE peid = ?";
+			
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(9, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setString(2, (String)temp[2]);
+			statement.setString(3, (String)temp[3]);
+			statement.setString(4, (String)temp[4]);
+			statement.setString(5, (String)temp[5]);
+			statement.setString(6, (String)temp[6]);
+			statement.setString(7, (String)temp[7]);
+			statement.setInt(8, (int)temp[8]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+
+		return true;
+	}
+
+	public Boolean updateRight(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET name = ? WHERE riid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(2, (int)temp[0]);
+			statement.setString(1, (String)temp[1]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updateStudent(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET peid = ?, sgid = ?, matrikelnumber = ? WHERE stid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(4, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+
+	public Boolean updateStudyGroup(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET short = ? WHERE sgid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(2, (int)temp[0]);
+			statement.setString(1, (String)temp[1]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
+		return true;
+	}
+	
+	public Boolean updateModuleLecturerStudyGroup(List<Object[]> data)
+	{
+		String sql = "UPDATE $TableName SET sgid = ?, moid = ?, leid = ? WHERE msid = ?";
+
+		PreparedStatement statement;
+			
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			
+			Object[] temp = data.get(0);
+			
+			statement.setInt(4, (int)temp[0]);
+			statement.setInt(1, (int)temp[1]);
+			statement.setInt(2, (int)temp[2]);
+			statement.setInt(3, (int)temp[3]);
+			
+			statement.executeQuery();
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
+			
 		return true;
 	}
 	
@@ -150,12 +762,15 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	{
 		String sql = "select count(*) from person where = ? and password = ?";
 		
+		PreparedStatement statement;
+		
 		try 
 		{
-			 setStatement(getDB().prepareStatement(sql));
-			 getStatement().setString(1, shortname);
-			 getStatement().setString(2, password);
-			 ResultSet rs = getStatement().executeQuery();
+			 statement = getDB().prepareStatement(sql);
+			 statement.setString(1, shortname);
+			 statement.setString(2, password);
+			 ResultSet rs = statement.executeQuery();
+			 
 			 while(rs.next())
 			 {
 				 if (rs.getInt(1) != 1)
@@ -186,16 +801,19 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	 */
 	public Boolean delete(int id, TableName tableName)
 	{
-		String sql = "delete ? where = ?";
+		String sql = "delete $TableName where $IDName = ?";
+		
+		setTableName(tableName);
+		
+		sql = sql.replace("$TableName", getTableName().toString());
+		sql = sql.replace("$IDName", TableID.values()[TableName.valueOf(getTableName())].toString());
+		PreparedStatement statement;
 		
 		try 
 		{
-			 setStatement(getDB().prepareStatement(sql));
-			 
-			 
-			 getStatement().setString(1, getTableName().toString());
-			 getStatement().setInt(2, id);
-			 getStatement().executeQuery();
+			 statement = getDB().prepareStatement(sql);
+			 statement.setInt(1, id);
+			 statement.executeQuery();
 		} 
 		catch (Exception e)
 		{
@@ -219,14 +837,19 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	 */
 	public Boolean hasRight(int id, int rights)
 	{
-		String sql = "select count(*) from person where id = ? and rid = ?";
+		String sql = "select count(*) from person where peid = ? and riid = ?";
+		
+		setTableName(tableName);
+		
+		sql = sql.replace("$TableName", getTableName().toString());
+		PreparedStatement statement;
 		
 		try 
 		{
-			setStatement(getDB().prepareStatement(sql));
-			getStatement().setInt(1, id);
-			getStatement().setInt(2, rights);
-			ResultSet rs = getStatement().executeQuery();
+			statement = getDB().prepareStatement(sql);
+			statement.setInt(1, id);
+			statement.setInt(2, rights);
+			ResultSet rs = statement.executeQuery();
 			while(rs.next())
 			{
 				if (rs.getInt(1) != 1)
@@ -244,41 +867,22 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		return true;
 	}
 	
-	
-	
-	
-	
-	
 	public TableName getTableName() {
 		return tableName;
 	}
-
 	public void setTableName(TableName table_name) {
 		this.tableName = table_name;
 	}
-
 	private String getUrl() {
 		return url;
 	}
-
 	private void setUrl(String url) {
 		this.url = url;
 	}
-
 	private Connection getDB() {
 		return dB;
 	}
-
 	private void setDB(Connection db) {
 		this.dB = db;
 	}
-
-	private PreparedStatement getStatement() {
-		return statement;
-	}
-
-	private void setStatement(PreparedStatement statement) {
-		this.statement = statement;
-	}
-
 }

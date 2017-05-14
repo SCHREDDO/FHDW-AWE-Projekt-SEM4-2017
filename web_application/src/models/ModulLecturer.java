@@ -7,10 +7,9 @@ public class ModulLecturer {
 	
 	public ModulLecturer()
 	{
-		
+		modul = new Modul();
+		lecturer = new Lecturer();
 	}
-
-	
 	
 	public Modul getModul() {
 		return modul;

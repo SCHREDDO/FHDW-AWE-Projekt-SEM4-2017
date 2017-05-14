@@ -14,7 +14,15 @@ public class Person {
 
 	public Person()
 	{
-		
+		peid = 0;
+		firstname = "";
+		larstname = "";
+		shortname = "";
+		right = new Right();
+		e_mail = "";
+		password = "";
+		addreass = "";
+		phoneNumber = 0;
 	}
 	
 	

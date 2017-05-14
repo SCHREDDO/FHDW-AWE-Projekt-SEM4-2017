@@ -7,10 +7,11 @@ public class Modul {
 	private int creditpoints;
 	
 	public Modul(){
-		
+		moid = 0;
+		name = "";
+		shortName = "";
+		creditpoints = 0;
 	}
-	
-	
 	
 	public int getMoid() {
 		return moid;

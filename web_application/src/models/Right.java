@@ -6,7 +6,8 @@ public class Right {
 	private String name;
 
 	public Right(){
-		
+		riid = 0;
+		name = "";
 	}
 	
 	

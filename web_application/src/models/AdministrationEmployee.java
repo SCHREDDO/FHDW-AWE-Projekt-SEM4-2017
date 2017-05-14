@@ -6,6 +6,8 @@ public class AdministrationEmployee extends Person{
 	
 	public AdministrationEmployee() {
 		super();
+		aeid = 0;
+		task_area = "";
 	}
 	
 	

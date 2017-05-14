@@ -27,19 +27,22 @@ public abstract class DBAccessJDBC {
 		List<Object[]> temp = new ArrayList<Object[]>();
 		
 		try {
+			int columncount = rs.getMetaData().getColumnCount();
+			
 			while(rs.next())
 			{	
+				Object[] obj = new Object[columncount];
+				for (int i = 0; i < obj.length; i++)
+				{
+					obj[i] = rs.getObject((i + 1));
+				}
 				
+				temp.add(obj);
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
 		return temp;
-	}
-	
-	public void ExecuteQuery()
-	{
-		
 	}
 }

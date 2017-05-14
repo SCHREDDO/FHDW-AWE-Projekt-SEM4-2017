@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudyGroup {
@@ -9,7 +10,9 @@ public class StudyGroup {
 	private List<ModulLecturer> modulLecturer;
 	
 	public StudyGroup(){
-		
+		sgid = 0;
+		shortName = "";
+		modulLecturer = new ArrayList<ModulLecturer>();
 	}
 	
 	

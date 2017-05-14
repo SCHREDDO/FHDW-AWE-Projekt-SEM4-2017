@@ -8,6 +8,10 @@ public class Student extends Person{
 	
 	public Student() {
 		super();
+		
+		stid = 0;
+		matrikelnumber = 0;
+		group = new StudyGroup();
 	}
 	
 	
