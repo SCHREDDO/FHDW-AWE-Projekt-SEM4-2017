@@ -1,77 +1,23 @@
 package controller;
+<<<<<<< HEAD
 import java.awt.List;
 import java.util.Set;
 
 import com.sun.glass.ui.TouchInputSupport;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+=======
+>>>>>>> origin/master
 
 import helper.*;
-import models.*;
-import views.*;
-
 
 public class MainController {
-	// Eingabe je eine Methode
-	
-	// Ausgabe je eine Methode
-	
-	
-	private AdministrationEmployee administrationEmployee;
-	public AdministrationEmployee getAdministrationEmployee() {
-		return administrationEmployee;
-	}
 
-	public void setAdministrationEmployee(AdministrationEmployee administrationEmployee) {
-		this.administrationEmployee = administrationEmployee;
+	public void rtest()
+	{
+		DBAccessJDBCSQLite test = new DBAccessJDBCSQLite();
+		test.
 	}
-
-	public Lecturer getLecturer() {
-		return lecturer;
-	}
-
-	public void setLecturer(Lecturer lecturer) {
-		this.lecturer = lecturer;
-	}
-
-	public Modul getModul() {
-		return modul;
-	}
-
-	public void setModul(Modul modul) {
-		this.modul = modul;
-	}
-
-	public ModulLecturer getModulLecturer() {
-		return modulLecturer;
-	}
-
-	public void setModulLecturer(ModulLecturer modulLecturer) {
-		this.modulLecturer = modulLecturer;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
-	public Permission getRight() {
-		return right;
-	}
-
-	public void setRight(Permission right) {
-		this.right = right;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
+<<<<<<< HEAD
 
 	public StudyGroup getStudyGroup() {
 		return studyGroup;
@@ -154,3 +100,6 @@ public class MainController {
    }
 
 
+=======
+}
+>>>>>>> origin/master
