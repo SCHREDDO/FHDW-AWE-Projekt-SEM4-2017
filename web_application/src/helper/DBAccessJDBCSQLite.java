@@ -197,6 +197,27 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		
 		return temp;
 	}
+	
+	public List<Object[]> getObjectDataStudentGroup(String studentgroup)
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select peid, riid, firstname, larstname, short, password, e_mail,address, phone_number, stid, peid, sgid, matrikelnumber from person, student, study_group where = ?";
+		
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			statement.setString(1, studentgroup);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
 
 	public Boolean insertIntoAdministrationEmployee(List<Object[]> data)
 	{

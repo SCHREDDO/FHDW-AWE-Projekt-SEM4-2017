@@ -2,6 +2,7 @@ package models;
 
 public class ModulLecturer {
 	
+	private int mlid;
 	private Modul modul;
 	private Lecturer lecturer;
 	
@@ -11,6 +12,13 @@ public class ModulLecturer {
 		lecturer = new Lecturer();
 	}
 	
+	
+	public int getMlid() {
+		return mlid;
+	}
+	public void setMlid(int mlid) {
+		this.mlid = mlid;
+	}
 	public Modul getModul() {
 		return modul;
 	}
