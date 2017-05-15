@@ -132,11 +132,8 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonStudent()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select peid, riid, firstname, larstname, short, password, e_mail,address, phone_number, stid, peid, sgid, matrikelnumber from person, student";
-		
-		setTableName(tableName);
-		
-		sql = sql.replace("$TableName", getTableName().toString());
+		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.peid, s.sgid, s.matrikelnumber from person as p, student as s where p.peid = s.peid";
+
 		PreparedStatement statement;
 		
 		try 
@@ -155,11 +152,8 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonLecturer()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select peid, riid, firstname, larstname, short, password, e_mail, address, phone_number, leid, peid, is_honouree_lecturer from person, lecturer";
-		
-		setTableName(tableName);
-		
-		sql = sql.replace("$TableName", getTableName().toString());
+		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, l.leid, l.peid, l.is_honouree_lecturer from person as p, lecturer as l where p.peid = l.peid";
+
 		PreparedStatement statement;
 		
 		try 
@@ -178,11 +172,8 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonAdministrationEmployee()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select peid, riid, firstname, larstname, short, password, e_mail, address, phone_number, aeid, peid, task_area from person, administration_employee";
+		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, a.aeid, a.peid, a.task_area from person as p, administration_employee as a where p.peid = a.peid";
 		
-		setTableName(tableName);
-		
-		sql = sql.replace("$TableName", getTableName().toString());
 		PreparedStatement statement;
 		
 		try 
@@ -201,7 +192,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataStudentGroup(String studentgroup)
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select peid, riid, firstname, larstname, short, password, e_mail,address, phone_number, stid, peid, sgid, matrikelnumber from person, student, study_group where = ?";
+		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.peid, s.sgid, s.matrikelnumber from person p, student s, study_group g where p.peid = s.peid and s.sgid = g.sgid";
 		
 		PreparedStatement statement;
 		
