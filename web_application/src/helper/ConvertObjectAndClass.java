@@ -101,6 +101,10 @@ public class ConvertObjectAndClass {
 		temp.setAddreass((String)obj[7]);
 		temp.setPhoneNumber((int)obj[8]);
 		temp.setStid((int)obj[9]);
+		StudyGroup s = new StudyGroup();
+		s.setSgid((int)obj[11]);
+		s.setShortName((String)obj[12]);
+		temp.setGroup(s);
 		temp.setMatrikelnumber((int)obj[10]);
 		
 		return temp;
@@ -111,7 +115,7 @@ public class ConvertObjectAndClass {
 		StudyGroup temp = new StudyGroup();
 		
 		temp.setSgid((int)obj[0]);
-		temp.setShortName((String)obj[0]);
+		temp.setShortName((String)obj[1]);
 		
 		return temp;
 	}
