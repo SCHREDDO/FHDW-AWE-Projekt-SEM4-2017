@@ -15,7 +15,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		modul_lecturer,
 		module_lecturer_study_group,
 		person,
-		right,
+		permission,
 		student,
 		study_group;
 
@@ -43,7 +43,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		mlid,
 		msid,
 		peid,
-		riid, 
+		pid, 
 		stid, 
 		sgid 
 	}
