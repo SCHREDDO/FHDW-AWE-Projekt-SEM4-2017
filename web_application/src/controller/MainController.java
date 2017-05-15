@@ -1,23 +1,17 @@
 package controller;
-<<<<<<< HEAD
+
 import java.awt.List;
 import java.util.Set;
 
 import com.sun.glass.ui.TouchInputSupport;
 import com.sun.org.apache.xpath.internal.operations.Mod;
-=======
->>>>>>> origin/master
+
 
 import helper.*;
+import models.*;
+import views.*;
 
 public class MainController {
-
-	public void rtest()
-	{
-		DBAccessJDBCSQLite test = new DBAccessJDBCSQLite();
-		test.
-	}
-<<<<<<< HEAD
 
 	public StudyGroup getStudyGroup() {
 		return studyGroup;
