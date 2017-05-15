@@ -1,21 +1,21 @@
 package models;
 
-public class Right {
+public class Permission {
 	
-	private int riid;
+	private int pid;
 	private String name;
 
-	public Right(){
-		riid = 0;
+	public Permission(){
+		pid = 0;
 		name = "";
 	}
 	
 	
 	public int getRiid() {
-		return riid;
+		return pid;
 	}
-	public void setRiid(int riid) {
-		this.riid = riid;
+	public void setRiid(int pid) {
+		this.pid = pid;
 	}
 	public String getName() {
 		return name;
