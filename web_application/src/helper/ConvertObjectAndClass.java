@@ -14,7 +14,7 @@ public class ConvertObjectAndClass {
 		temp.setFirstname((String)obj[1]);
 		temp.setLarstname((String)obj[2]);
 		temp.setShortname((String)obj[3]);
-		Right r = new Right();
+		Permission r = new Permission();
 		r.setRiid((int)obj[4]);
 		temp.setRight(r);
 		temp.setE_mail((String)obj[5]);
@@ -35,7 +35,7 @@ public class ConvertObjectAndClass {
 		temp.setFirstname((String)obj[1]);
 		temp.setLarstname((String)obj[2]);
 		temp.setShortname((String)obj[3]);
-		Right r = new Right();
+		Permission r = new Permission();
 		r.setRiid((int)obj[4]);
 		temp.setRight(r);
 		temp.setE_mail((String)obj[5]);
@@ -75,9 +75,9 @@ public class ConvertObjectAndClass {
 		return temp;
 	}
 	
-	public Right ConvertToRight(Object[] obj)
+	public Permission ConvertToRight(Object[] obj)
 	{
-		Right temp = new Right();
+		Permission temp = new Permission();
 		
 		temp.setRiid((int)obj[0]);
 		temp.setName((String)obj[0]);
@@ -93,7 +93,7 @@ public class ConvertObjectAndClass {
 		temp.setFirstname((String)obj[1]);
 		temp.setLarstname((String)obj[2]);
 		temp.setShortname((String)obj[3]);
-		Right r = new Right();
+		Permission r = new Permission();
 		r.setRiid((int)obj[4]);
 		temp.setRight(r);
 		temp.setE_mail((String)obj[5]);
@@ -177,7 +177,7 @@ public class ConvertObjectAndClass {
 		return temp;
 	}
 	
-	public Object[] ConvertToRight(Right obj)
+	public Object[] ConvertToRight(Permission obj)
 	{
 		Object[] temp = new Object[2];
 		

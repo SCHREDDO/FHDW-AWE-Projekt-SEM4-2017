@@ -6,7 +6,7 @@ public class Person {
 	private String firstname;
 	private String larstname;
 	private String shortname;
-	private Right right;
+	private Permission right;
 	private String e_mail;
 	private String password;
 	private String addreass;
@@ -18,7 +18,7 @@ public class Person {
 		firstname = "";
 		larstname = "";
 		shortname = "";
-		right = new Right();
+		right = new Permission();
 		e_mail = "";
 		password = "";
 		addreass = "";
@@ -51,10 +51,10 @@ public class Person {
 	public void setShortname(String shortname) {
 		this.shortname = shortname;
 	}
-	public Right getRight() {
+	public Permission getRight() {
 		return right;
 	}
-	public void setRight(Right right) {
+	public void setRight(Permission right) {
 		this.right = right;
 	}
 	public String getE_mail() {
