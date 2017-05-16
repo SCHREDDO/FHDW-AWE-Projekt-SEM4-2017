@@ -1,0 +1,13 @@
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.eclipse.jetty:jetty-server:9.2.16.v20160414'
+	compile 'org.eclipse.jetty:jetty-servlet:9.2.16.v20160414'
+	compile 'org.eclipse.jetty:jetty-webapp:9.2.16.v20160414'
+	compile 'org.eclipse.jetty:jetty-jsp:9.2.16.v20160414'
+}
