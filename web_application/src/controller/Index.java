@@ -14,6 +14,8 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Index {
+	
+	public static boolean goodLogin = false;
 
 	public static void main(String[] args) throws Exception {
 		URL rootURL = Index.class.getClassLoader().getResource("resources");
@@ -21,8 +23,10 @@ public class Index {
 
 		Server server = new Server(8080);
 		WebAppContext contect = new WebAppContext(rootURLString, "/");
-		contect.addServlet(LoginController.class, "/hello");
+		contect.addServlet(LoginController.class, "/Index");
 		contect.addServlet(Startseite.class, "/Startseite");
+		contect.addServlet(LecturerController.class, "/Dozenten");
+		contect.addServlet(StudentController.class, "/Student");
 		server.setHandler(contect);
 		
 		server.start();
@@ -30,5 +34,13 @@ public class Index {
 		server.join();
 	}
 
+	public static boolean getGoodLogin(){
+		return goodLogin;
+		
+	}
 	
+	public static void setGoodLogin(boolean bool){
+		
+		goodLogin = bool;
+	}
 }

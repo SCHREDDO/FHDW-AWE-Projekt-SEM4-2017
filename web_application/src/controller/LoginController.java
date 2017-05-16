@@ -11,13 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginController extends HttpServlet {
 
+		
+		
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 			resp.getWriter().write("Hello World");
 	//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 			//req.getRequestDispatcher("/helloWorld.jsp");
-			getServletContext().getRequestDispatcher("/helloWorld.jsp").forward(req, resp);
+			getServletContext().getRequestDispatcher("/Login.jsp").forward(req, resp);
 
 			
 			System.out.println(req.getParameter("name"));
