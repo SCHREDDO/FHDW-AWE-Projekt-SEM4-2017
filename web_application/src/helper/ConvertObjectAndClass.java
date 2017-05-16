@@ -120,6 +120,42 @@ public class ConvertObjectAndClass {
 		return temp;
 	}
 	
+	public Person ConvertToPerson(Object[] obj)
+	{
+		Person temp = new Person();
+		
+		temp.setPeid((int)obj[0]);
+		temp.setFirstname((String)obj[1]);
+		temp.setLarstname((String)obj[2]);
+		temp.setShortname((String)obj[3]);
+		Permission p = new Permission();
+		p.setRiid((int)obj[4]);
+		temp.setRight(p);
+		temp.setE_mail((String)obj[5]);
+		temp.setPassword((String)obj[6]);
+		temp.setAddreass((String)obj[7]);
+		temp.setPhoneNumber((int)obj[8]);
+		
+		return temp;
+	}
+	
+	public Object[] ConvertToPerson(Person obj)
+	{
+		Object[] temp = new Object[11];
+		
+		temp[0] = obj.getPeid();
+		temp[0] = obj.getFirstname();
+		temp[0] = obj.getLarstname();
+		temp[0] = obj.getShortname();
+		temp[0] = obj.getRight().getRiid();
+		temp[0] = obj.getE_mail();
+		temp[0] = obj.getPassword();
+		temp[0] = obj.getAddreass();
+		temp[0] = obj.getPhoneNumber();
+		
+		return temp;
+	}
+	
 	public Object[] ConvertToAdministrationEmployee(AdministrationEmployee obj)
 	{
 		Object[] temp = new Object[11];
