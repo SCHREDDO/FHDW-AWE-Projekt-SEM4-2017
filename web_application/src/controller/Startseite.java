@@ -18,6 +18,9 @@ public class Startseite extends HttpServlet {
 
 	//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 			//req.getRequestDispatcher("/helloWorld.jsp");
+			if(Index.getGoodLogin()) resp.sendRedirect("/Startseite.jsp");
+			else resp.getWriter().write("Keine Berechtigung");
+			
 			if(req.getParameter("name") != null){
 				if(req.getParameter("name").equals("test@mail.de") && req.getParameter("pass").equals("test"))
 				{
@@ -30,8 +33,7 @@ public class Startseite extends HttpServlet {
 				}
 			}
 			
-			if(Index.getGoodLogin()) resp.sendRedirect("/Startseite.jsp");
-			else resp.getWriter().write("Keine Berechtigung");
+
 			
 			
 			
