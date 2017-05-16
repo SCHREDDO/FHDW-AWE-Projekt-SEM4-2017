@@ -17,9 +17,9 @@
 	%>
 	<%=request.getParameter("name")%>
 
-	<form role="form" method="GET" action="http://localhost:8080/Studierenden">
+	<form role="form" method="GET" action="http://localhost:8080/Student">
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary btn-block">Studierenden</button>
+			<button type="submit" class="btn btn-primary btn-block">Student</button>
 		</div>
 	</form>
 

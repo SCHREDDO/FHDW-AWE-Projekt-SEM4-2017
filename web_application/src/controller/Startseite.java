@@ -16,7 +16,6 @@ public class Startseite extends HttpServlet {
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-			resp.getWriter().write("Hello World");
 	//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 			//req.getRequestDispatcher("/helloWorld.jsp");
 			if(req.getParameter("name") != null){
@@ -32,7 +31,7 @@ public class Startseite extends HttpServlet {
 			}
 			
 			if(Index.getGoodLogin()) resp.sendRedirect("/Startseite.jsp");
-			else resp.getWriter().write("Deine Mutter ist fett");
+			else resp.getWriter().write("Keine Berechtigung");
 			
 			
 			

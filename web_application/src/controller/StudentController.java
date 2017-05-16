@@ -22,7 +22,7 @@ public class StudentController extends HttpServlet
 		resp.getWriter().write("Hello World");
 //		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 		//req.getRequestDispatcher("/helloWorld.jsp");
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
 
 		
 		System.out.println(req.getParameter("name"));
