@@ -72,24 +72,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>asd</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>max</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>flax</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
+    
+    
+    
+    <%= request.getParameter("students")  %>
+    <c:forEach items="${students}" var="students">
+    	<tr>
+    		<th scope="row">1</th>      
+	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
+	        <td>${students.getShortname}</td>
+	        <td>${students.getMatrikelnumber()}</td>
+    	</tr>
+	</c:forEach>
+    
+    
+    
     </tbody>
 </table>
 

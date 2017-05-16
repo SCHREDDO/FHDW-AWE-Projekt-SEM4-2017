@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import models.*;
 import helper.*;
@@ -25,7 +26,14 @@ public class Startseite extends HttpServlet {
 
 	//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 			//req.getRequestDispatcher("/helloWorld.jsp");
-			if(db.login(req.getParameter("name"), req.getParameter("pass"))) resp.sendRedirect("/Startseite.jsp"); //abfrage
+			if(db.login(req.getParameter("name"), req.getParameter("pass"))) 
+			{
+				User user = db.getlogindata(req.getParameter("name"), req.getParameter("pass"));
+				
+				HttpSession session = req.getSession(true);
+				session.setAttribute("currentSessionUser", user);
+				resp.sendRedirect("/Startseite.jsp");
+			}
 			else resp.getWriter().write("Keine Berechtigung");
 			
 			if(req.getParameter("name") != null){

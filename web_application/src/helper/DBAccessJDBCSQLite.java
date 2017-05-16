@@ -2,6 +2,9 @@ package helper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import models.User;
+
 import java.sql.*;
 
 public class DBAccessJDBCSQLite extends DBAccessJDBC{
@@ -201,6 +204,8 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement = getDB().prepareStatement(sql);
 			statement.setString(1, studentgroup);
 			temp = GetResultToObjectData(statement.executeQuery());
+			System.out.println("Test");
+			System.out.println(temp.get(0)[0]);
 		} 
 		catch (Exception e)
 		{
@@ -877,6 +882,36 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		}
 		
 		return true;
+	}
+	
+	public User getlogindata(String e_mail, String password)
+	{
+		String sql = "select short, pid from person where e_mail = ? and password = ?";
+		
+		PreparedStatement statement;
+		
+		User temp = new User();
+		
+		try 
+		{
+			 statement = getDB().prepareStatement(sql);
+			 statement.setString(1, e_mail);
+			 statement.setString(2, password);
+			 ResultSet rs = statement.executeQuery();
+			 
+			 while(rs.next())
+			 {
+				 temp.setShortname(rs.getString(1));
+				 temp.setPid(rs.getInt(2));
+			 }
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+			return null;
+		}
+		
+		return temp;
 	}
 	
 	public TableName getTableName() {
