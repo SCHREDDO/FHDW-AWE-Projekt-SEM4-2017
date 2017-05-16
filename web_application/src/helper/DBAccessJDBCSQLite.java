@@ -770,16 +770,16 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	 * @info
 	 * Schaut ob der User existirt
 	 */
-	public Boolean login(String shortname, String password)
+	public Boolean login(String e_mail, String password)
 	{
-		String sql = "select count(*) from person where = ? and password = ?";
+		String sql = "select count(*) from person where e_mail = ? and password = ?";
 		
 		PreparedStatement statement;
 		
 		try 
 		{
 			 statement = getDB().prepareStatement(sql);
-			 statement.setString(1, shortname);
+			 statement.setString(1, e_mail);
 			 statement.setString(2, password);
 			 ResultSet rs = statement.executeQuery();
 			 

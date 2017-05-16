@@ -19,6 +19,19 @@ public class StudentController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
+		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
+		ConvertObjectAndClass cac = new ConvertObjectAndClass();
+		db.connectTODB();
+		
+		List<Student> students = new ArrayList<Student>();
+		
+		List<Object[]> objs = db.getObjectDataPersonStudent();
+		
+		for (int i = 0; i < objs.size(); i++) {
+			students.add(cac.ConvertToStudent(objs.get(i)));
+		}
+		req.setAttribute("students", students);
+		
 		resp.getWriter().write("Hello World");
 //		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 		//req.getRequestDispatcher("/helloWorld.jsp");
@@ -28,33 +41,5 @@ public class StudentController extends HttpServlet
 		System.out.println(req.getParameter("name"));
 		
 
-	}
-	
-	public void studentview()
-	{
-		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
-		db.connectTODB();
-		
-		List<Student> list = new ArrayList<Student>();
-		
-		db.getObjectDataPersonStudent();
-	}
-	
-	public void studentnewview()
-	{
-		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
-		db.connectTODB();
-	}
-	
-	public void studentdeletview()
-	{
-		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
-		db.connectTODB();
-	}
-	
-	public void studentshowview()
-	{
-		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
-		db.connectTODB();
 	}
 }
