@@ -29,7 +29,7 @@
                 <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
                 <li class="active" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost:8080/Student">Studierende</a> </li>
+                        <li><a href="http://localhost:8080/Studenten">Studierende</a> </li>
                         <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
                     </ul>
                 </li>
@@ -63,33 +63,27 @@
     <thead>
     <tr>
         <th>#</th>
-        <th class="col-md-5 col-xs-5">Name / Nachname</th>
-        <th class="col-md-4 col-xs-4">Kurs</th>
-        <th class="col-md-3 col-xs-3">Matrikelnr</th>
+        <th class="col-md-3 col-xs-3">Name / Nachname</th>
+        <th class="col-md-3 col-xs-3">Kürzel</th>
+        <th class="col-md-3 col-xs-3">Hunoradotzent</th>
     </tr>
     <tr class="warning no-result">
         <td colspan="4"><i class="fa fa-warning"></i> No result</td>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>asd</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>max</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>flax</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
+    
+    <%= request.getParameter("lecturers")  %>
+    <c:forEach items="${lecturers}" var="lecturers">
+    	<tr>
+    		<th scope="row">1</th>
+    		<td>${lecturers.getFirstname()} ${students.getLarstname()}</td>   
+	        <td>${lecturers.getFirstname()} ${students.getLarstname()}</td>
+	        <td>${lecturers.getShortname()}</td>
+	        <td>${lecturers.getIs_honouree_lecturer()}</td>
+    	</tr>
+	</c:forEach>
+	
     </tbody>
 </table>
 

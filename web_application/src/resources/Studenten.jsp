@@ -63,8 +63,8 @@
     <thead>
     <tr>
         <th>#</th>
-        <th class="col-md-5 col-xs-5">Name / Nachname</th>
-        <th class="col-md-4 col-xs-4">Kurs</th>
+        <th class="col-md-3 col-xs-3">Name / Nachname</th>
+        <th class="col-md-3 col-xs-3">Kürzel</th>
         <th class="col-md-3 col-xs-3">Matrikelnr</th>
     </tr>
     <tr class="warning no-result">
@@ -73,19 +73,15 @@
     </thead>
     <tbody>
     
-    
-    
     <%= request.getParameter("students")  %>
     <c:forEach items="${students}" var="students">
     	<tr>
     		<th scope="row">1</th>      
 	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
-	        <td>${students.getShortname}</td>
+	        <td>${students.getShortname()}</td>
 	        <td>${students.getMatrikelnumber()}</td>
     	</tr>
 	</c:forEach>
-    
-    
     
     </tbody>
 </table>

@@ -32,18 +32,23 @@ public class ConvertObjectAndClass {
 		Lecturer temp = new Lecturer();
 		
 		temp.setPeid((int)obj[0]);
-		temp.setFirstname((String)obj[1]);
-		temp.setLarstname((String)obj[2]);
-		temp.setShortname((String)obj[3]);
+		temp.setFirstname((String)obj[2]);
+		temp.setLarstname((String)obj[3]);
+		temp.setShortname((String)obj[4]);
 		Permission r = new Permission();
-		r.setRiid((int)obj[4]);
+		r.setRiid((int)obj[1]);
 		temp.setRight(r);
-		temp.setE_mail((String)obj[5]);
-		temp.setPassword((String)obj[6]);
+		temp.setPassword((String)obj[5]);
+		temp.setE_mail((String)obj[6]);
 		temp.setAddreass((String)obj[7]);
 		temp.setPhoneNumber((int)obj[8]);
 		temp.setLeid((int)obj[9]);
-		temp.setIs_honouree_lecturer((boolean)obj[10]);
+		if ((int)obj[10] == 1) {
+			temp.setIs_honouree_lecturer(true);
+		} else {
+			temp.setIs_honouree_lecturer(false);
+		}
+		
 		
 		return temp;
 	}
@@ -90,22 +95,22 @@ public class ConvertObjectAndClass {
 		Student temp = new Student();
 		
 		temp.setPeid((int)obj[0]);
-		temp.setFirstname((String)obj[1]);
-		temp.setLarstname((String)obj[2]);
-		temp.setShortname((String)obj[3]);
+		temp.setFirstname((String)obj[2]);
+		temp.setLarstname((String)obj[3]);
+		temp.setShortname((String)obj[4]);
 		Permission r = new Permission();
-		r.setRiid((int)obj[4]);
+		r.setRiid((int)obj[1]);
 		temp.setRight(r);
-		temp.setE_mail((String)obj[5]);
-		temp.setPassword((String)obj[6]);
+		temp.setPassword((String)obj[5]);
+		temp.setE_mail((String)obj[6]);
 		temp.setAddreass((String)obj[7]);
 		temp.setPhoneNumber((int)obj[8]);
 		temp.setStid((int)obj[9]);
 		StudyGroup s = new StudyGroup();
-		s.setSgid((int)obj[11]);
-		s.setShortName((String)obj[12]);
+		s.setSgid((int)obj[10]);
+		s.setShortName((String)obj[13]);
 		temp.setGroup(s);
-		temp.setMatrikelnumber((int)obj[10]);
+		temp.setMatrikelnumber((int)obj[11]);
 		
 		return temp;
 	}

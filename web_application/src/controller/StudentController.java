@@ -18,7 +18,10 @@ public class StudentController extends HttpServlet
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
+		
+		
+		System.out.println("Test");
+		
 		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
@@ -30,16 +33,14 @@ public class StudentController extends HttpServlet
 		for (int i = 0; i < objs.size(); i++) {
 			students.add(cac.ConvertToStudent(objs.get(i)));
 		}
+		
 		req.setAttribute("students", students);
 		
 		resp.getWriter().write("Hello World");
-//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
+		//System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
 		//req.getRequestDispatcher("/helloWorld.jsp");
 		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
-
 		
-		System.out.println(req.getParameter("name"));
-		
-
+		//System.out.println(req.getParameter("name"));
 	}
 }

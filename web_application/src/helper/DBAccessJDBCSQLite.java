@@ -135,7 +135,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonStudent()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.sgid, s.matrikelnumber, g.sgid, g.short from person as p, student as s, study_group as g where p.peid = s.peid and s.sgid = g.sgid";
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.sgid, s.matrikelnumber, g.sgid, g.short from person as p, student as s, study_group as g where p.peid = s.peid and s.sgid = g.sgid";
 
 		PreparedStatement statement;
 		
@@ -155,7 +155,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonLecturer()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, l.leid, l.is_honouree_lecturer from person as p, lecturer as l where p.peid = l.peid";
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, l.leid, l.is_honouree_lecturer from person as p, lecturer as l where p.peid = l.peid";
 
 		PreparedStatement statement;
 		
@@ -175,7 +175,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataPersonAdministrationEmployee()
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, a.aeid, a.task_area from person as p, administration_employee as a where p.peid = a.peid";
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, a.aeid, a.task_area from person as p, administration_employee as a where p.peid = a.peid";
 		
 		PreparedStatement statement;
 		
@@ -195,7 +195,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	public List<Object[]> getObjectDataStudentGroup(String studentgroup)
 	{
 		List<Object[]> temp = new ArrayList<Object[]>();
-		String sql = "select p.peid, p.riid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.peid, s.sgid, s.matrikelnumber from person p, student s, study_group g where p.peid = s.peid and s.sgid = g.sgid";
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.peid, s.sgid, s.matrikelnumber from person p, student s, study_group g where p.peid = s.peid and s.sgid = g.sgid";
 		
 		PreparedStatement statement;
 		
@@ -204,8 +204,6 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement = getDB().prepareStatement(sql);
 			statement.setString(1, studentgroup);
 			temp = GetResultToObjectData(statement.executeQuery());
-			System.out.println("Test");
-			System.out.println(temp.get(0)[0]);
 		} 
 		catch (Exception e)
 		{
