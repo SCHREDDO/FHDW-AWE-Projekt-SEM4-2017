@@ -2,31 +2,58 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Title</title>
-
+    <title>FHDW-Studentenverwaltung Studierende</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
-	<h1>Meine erste JSP</h1>
 
-	<%
-		// beliebiger Java-Code ...
-		out.println("Hallo");
-	%>
-	<%=request.getParameter("name")%>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
 
-	<form role="form" method="GET" action="http://localhost:8080/Student">
-		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary btn-block">Student</button>
-		</div>
-	</form>
+        <!-- Logo -->
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">FHDW-Studentenverwaltung</a>
+        </div>
 
-	<form role="form" method="GET" action="http://localhost:8080/Dozenten">
-		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary btn-block">Dozenten</button>
-		</div>
-	</form>
+        <!-- Menu Items -->
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
+                <li class="active" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Studierende</a> </li>
+                        <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
+                    </ul>
+                </li>
+                <li><a href="http://localhost:8080/Kontakt">Kontakt</a></li>
+
+                <!-- drop down menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mein Profil <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Einstellungen</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--right align -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Ausloggen</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
 </body>
 </html>

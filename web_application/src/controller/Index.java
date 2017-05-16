@@ -27,6 +27,7 @@ public class Index {
 		contect.addServlet(Startseite.class, "/Startseite");
 		contect.addServlet(LecturerController.class, "/Dozenten");
 		contect.addServlet(StudentController.class, "/Student");
+		contect.addServlet(Kontakt.class, "/Kontakt");
 		server.setHandler(contect);
 		
 		server.start();

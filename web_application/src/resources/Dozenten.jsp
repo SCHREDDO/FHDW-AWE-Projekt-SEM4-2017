@@ -29,11 +29,11 @@
                 <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
                 <li class="active" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost:63342/HTML/studierende.html?_ijt=oj8cckts413mtjs2od612mvq0c">Studierende</a> </li>
-                        <li><a href="#">Dozenten</a> </li>
+                        <li><a href="http://localhost:8080/Student">Studierende</a> </li>
+                        <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
                     </ul>
                 </li>
-                <li><a href="http://localhost:63342/HTML/Kontakt.html?_ijt=ti0ajrs32fvekqd8540kphhucv">Kontakt</a></li>
+                <li><a href="http://localhost:8080/Kontakt">Kontakt</a></li>
 
                 <!-- drop down menu -->
                 <li class="dropdown">
