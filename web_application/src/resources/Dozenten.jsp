@@ -74,6 +74,7 @@
     <tbody>
     
     <%= request.getParameter("lecturers")  %>
+    
     <c:forEach items="${lecturers}" var="lecturers">
     	<tr>
     		<th scope="row">${lecturers.getLeid()}</th>
