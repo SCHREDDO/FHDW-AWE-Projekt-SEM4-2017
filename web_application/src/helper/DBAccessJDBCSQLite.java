@@ -212,6 +212,69 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		
 		return temp;
 	}
+	
+	public List<Object[]> getObjectDataPersonStudent(int id)
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail,address, p.phone_number, s.stid, s.sgid, s.matrikelnumber, g.sgid, g.short from person as p, student as s, study_group as g where p.peid = s.peid and s.sgid = g.sgid and s.stid = ?";
+
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			statement.setInt(1, id);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+	
+	public List<Object[]> getObjectDataPersonLecturer(int id)
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, l.leid, l.is_honouree_lecturer from person as p, lecturer as l where p.peid = l.peid and l.leid = ?";
+
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			statement.setInt(1, id);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
+	
+	public List<Object[]> getObjectDataPersonAdministrationEmployee(int id)
+	{
+		List<Object[]> temp = new ArrayList<Object[]>();
+		String sql = "select p.peid, p.pid, p.firstname, p.larstname, p.short, p.password, p.e_mail, p.address, p.phone_number, a.aeid, a.task_area from person as p, administration_employee as a where p.peid = a.peid and a.aeid = ?";
+		
+		PreparedStatement statement;
+		
+		try 
+		{			
+			statement = getDB().prepareStatement(sql);
+			statement.setInt(1, id);
+			temp = GetResultToObjectData(statement.executeQuery());
+		} 
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		return temp;
+	}
 
 	public Boolean insertIntoAdministrationEmployee(List<Object[]> data)
 	{

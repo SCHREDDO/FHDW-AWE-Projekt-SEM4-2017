@@ -144,6 +144,32 @@ public class ConvertObjectAndClass {
 		return temp;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Object[] ConvertToPerson(Person obj)
 	{
 		Object[] temp = new Object[11];
