@@ -31,6 +31,10 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">Studierende</a> </li>
                         <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
+						<li><a href="http://localhost:8080/Personen">Personen</a></li>
+						<li><a href="http://localhost:8080/Verwaltung">Verwaltung</a></li>
+						<li><a href="http://localhost:8080/Kurse">Kurse</a> </li>
+						<li><a href="http://localhost:8080/Module">Module</a></li>
                     </ul>
                 </li>
                 <li><a href="http://localhost:8080/Kontakt">Kontakt</a></li>
@@ -54,7 +58,21 @@
 
     </div>
 </nav>
-
+<form action="createStudent.jsp" method="get">
+    <fieldset>
+        <legend></legend>
+        <label for="fistName">First Name</label>
+        <input type="text" name="firstName" /> <br/>
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" /> <br/>
+        <label for="email">Email</label>
+        <input type="text" name="email" /> <br/>
+        <select name="Kurs">
+            <option value="1">Kurs</option>
+        </select>
+        <input type="submit" value="submit">
+    </fieldset>
+</form>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -80,6 +98,8 @@
 	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
 	        <td>${students.getShortname()}</td>
 	        <td>${students.getMatrikelnumber()}</td>
+			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>
 	</c:forEach>
     

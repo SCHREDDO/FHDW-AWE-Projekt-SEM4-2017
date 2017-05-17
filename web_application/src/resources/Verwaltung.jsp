@@ -1,14 +1,17 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FHDW-Studentenverwaltung Studierende</title>
+    <title>FHDW-Studentenverwaltung Personen</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="script/main.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 
@@ -23,23 +26,18 @@
         <!-- Menu Items -->
         <div>
             <ul class="nav navbar-nav">
-                <li><a href="http://localhost:63342/HTML/new.html?_ijt=ti0ajrs32fvekqd8540kphhucv">Startseite</a></li>
+                <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
                 <li class="active" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Studierende</a> </li>
-                        <li><a href="http://localhost:63342/HTML/dozenten.html?_ijt=oj8cckts413mtjs2od612mvq0c">Dozenten</a> </li>
+                        <li><a href="http://localhost:8080/Studierende">Studierende</a> </li>
+                        <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
+						<li><a href="http://localhost:8080/Personen">Personen</a></li>
+						<li><a href="#">Verwaltung</a></li>
+						<li><a href="http://localhost:8080/Kurse">Kurse</a> </li>
+						<li><a href="http://localhost:8080/Module">Module</a></li>
                     </ul>
                 </li>
-                <li><a href="http://localhost:63342/HTML/Kontakt.html?_ijt=ti0ajrs32fvekqd8540kphhucv">Kontakt</a></li>
-
-                <!-- drop down menu -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mein Profil <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Einstellungen</a></li>
-                    </ul>
-                </li>
+                <li><a href="http://localhost:8080/Kontakt">Kontakt</a></li>
             </ul>
 
             <!--right align -->
@@ -51,7 +49,7 @@
 
     </div>
 </nav>
-<form action="createStudent.jsp" method="get">
+<form action="createVerwaltung.jsp" method="get">
     <fieldset>
         <legend></legend>
         <label for="fistName">First Name</label>
@@ -74,35 +72,28 @@
     <thead>
     <tr>
         <th>#</th>
-        <th class="col-md-5 col-xs-5">Name / Nachname</th>
-        <th class="col-md-4 col-xs-4">Kurs</th>
-        <th class="col-md-3 col-xs-3">Matrikelnr</th>
+        <th class="col-md-3 col-xs-3">Name / Nachname</th>
+        <th class="col-md-3 col-xs-3">Adresse</th>
+        <th class="col-md-3 col-xs-3">Email</th>
     </tr>
     <tr class="warning no-result">
         <td colspan="4"><i class="fa fa-warning"></i> No result</td>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>asd</td>
-        <td>asd</td>
-        <td>as</td>
-        <td><a class="btn mini blue-stripe" href="#">Edit</a></td>
-        <td><a href="?delete=" class="confirm-delete btn mini red-stripe" role="button" data-id="2">Delete</a></td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>max</td>
-        <td>asd</td>
-        <td>as</td>
-    </tr>
-    <tr>
-        <th scope="row">1</th>
-        <td>flax</td>
-        <td>asd</td>
-        <td>For</td>
-    </tr>
+    
+    <%= request.getParameter("students")  %>
+    <c:forEach items="${students}" var="students">
+    	<tr>
+    		<th scope="row">${students.getStid()}</th>      
+	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
+	        <td>${students.getShortname()}</td>
+	        <td>${students.getMatrikelnumber()}</td>
+			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<!--<td>Buttons Edit / Delete</td>-->
+    	</tr>
+	</c:forEach>
+    
     </tbody>
 </table>
 
