@@ -154,6 +154,54 @@ public class ConvertObjectAndClass {
 	
 	
 	
+	public Student ConvertToStudento(Object[] obj)
+	{
+		Student temp = new Student();
+		
+		return temp;
+	}
+	
+	public AdministrationEmployee ConvertToAdministrationEmployeeo(Object[] obj)
+	{
+		AdministrationEmployee temp = new AdministrationEmployee();
+		
+		return temp;
+	}
+	
+	
+	public Lecturer ConvertToLecturero(Object[] obj)
+	{
+		Lecturer temp = new Lecturer();
+		
+		return temp;
+	}
+	
+	
+	
+	public Object[] ConvertToStudento(Student obj)
+	{
+		Object[] temp = new Object[11];
+		
+		return temp;
+	}
+	
+	public Object[] ConvertToAdministrationEmployeeo(AdministrationEmployee obj)
+	{
+		Object[] temp = new Object[11];
+		
+		return temp;
+	}
+	
+	
+	public Object[] ConvertToLecturero(Lecturer obj)
+	{
+		Object[] temp = new Object[11];
+		
+		return temp;
+	}
+	
+	
+	
 	
 	
 	
