@@ -76,7 +76,7 @@
     <%= request.getParameter("lecturers")  %>
     <c:forEach items="${lecturers}" var="lecturers">
     	<tr>
-    		<th scope="row">1</th>
+    		<th scope="row">${lecturers.getLeid()}</th>
     		<td>${lecturers.getFirstname()} ${students.getLarstname()}</td>   
 	        <td>${lecturers.getFirstname()} ${students.getLarstname()}</td>
 	        <td>${lecturers.getShortname()}</td>
