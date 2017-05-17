@@ -816,19 +816,25 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	 */
 	public Boolean delete(int id, TableName tableName)
 	{
-		String sql = "delete $TableName where $IDName = ?";
+		String sql = "delete from $TableName where $IDName = ?";
 		
 		setTableName(tableName);
 		
 		sql = sql.replace("$TableName", getTableName().toString());
 		sql = sql.replace("$IDName", TableID.values()[TableName.valueOf(getTableName())].toString());
+		 System.out.println(sql);
+
 		PreparedStatement statement;
-		
+		 System.out.println(sql);
+
 		try 
 		{
 			 statement = getDB().prepareStatement(sql);
 			 statement.setInt(1, id);
-			 statement.executeQuery();
+			 System.out.println(statement.toString());
+			boolean bool = statement.execute();
+			// statement.executeQuery();
+			 System.out.println(bool);
 		} 
 		catch (Exception e)
 		{

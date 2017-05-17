@@ -28,6 +28,15 @@ public class Index {
 		contect.addServlet(LecturerController.class, "/Dozenten");
 		contect.addServlet(StudentController.class, "/Studenten");
 		contect.addServlet(Kontakt.class, "/Kontakt");
+		//contect.addServlet(editDozenten.class, "/editDozenten");
+		contect.addServlet(deleteDozenten.class, "/deleteDozenten");
+		//contect.addServlet(editStudent.class, "/editStudent");
+		//contect.addServlet(deleteStudent.class, "/deleteStudent");
+		//contect.addServlet(newStudent.class, "/newStudent");
+		//contect.addServlet(newDozent.class, "/newDozent");
+
+
+
 		server.setHandler(contect);
 		
 		server.start();

@@ -81,6 +81,9 @@
 	        <td>${lecturers.getFirstname()} ${students.getLarstname()}</td>
 	        <td>${lecturers.getShortname()}</td>
 	        <td>${lecturers.getIs_honouree_lecturer()}</td>
+	        <td><a href="http://localhost:8080/editDozenten" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+    		<td><a href="http://localhost:8080/deleteDozenten?delete=${lecturers.leid}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
+    	
     	</tr>
 	</c:forEach>
 	
