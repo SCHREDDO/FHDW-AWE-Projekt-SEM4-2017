@@ -54,8 +54,8 @@
 
     <div class="panel panel-info">
         <div class="panel-heading">
-            <!-- GET name -->
-            <h3 class="panel-title">getName</h3>
+            <%= request.getParameter("student")  %>
+            <h3 class="panel-title">${student.getFirstname()} ${student.getLarstname}</h3>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -65,41 +65,30 @@
                     <table class="table table-user-information">
                         <tbody>
                         <tr>
+                            <td>Kürzel:</td>
+                            <td>${student.getShort()}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>${student.getE_mail()}</td>
+                        </tr>
+                        <tr>
+                            <td>Addresse:</td>
+                            <td>${student.getAddress()}</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Telephone:</td>
+                            <td>${student.getPhone_number()}</td>
+                        </tr>
+						<tr>
+                            <td>Matrikelnumber:</td>
+                            <td>${student.getTask_area()}</td>
+                        </tr>
+						<tr>
                             <td>Kurs:</td>
-                            <td>getKurs</td>
+                            <td>${student.getGroup().getShortName()}</td>
                         </tr>
-                        <tr>
-                            <td>Matrikelnr</td>
-                            <td>getMatrikelNr</td>
-                        </tr>
-                        <tr>
-                            <td>Geburtstag</td>
-                            <td>getBday</td>
-                        </tr>
-
-                        <tr>
-                        <tr>
-                            <td>Ort</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Strasse</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Plz</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><a href="mailto:info@support.com">info@support.com</a></td>
-                        </tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                        </td>
-
-                        </tr>
-
                         </tbody>
                     </table>
                 </div>

@@ -50,7 +50,11 @@
     </div>
 </nav>
 
-<h1>getKurs()</h1>
+<%= request.getParameter("studygroup")  %>
+<%= request.getParameter("students")  %>
+
+<h1>${studygroup.getShortName()}</h1>
+
 <table class="table table-hover table-bordered results">
     <thead>
     <tr>
@@ -63,15 +67,12 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("students")  %>
     <c:forEach items="${students}" var="students">
     	<tr>
     		<th scope="row">${students.getStid()}</th>      
 	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
 	        <td>${students.getShortname()}</td>
 	        <td>${students.getMatrikelnumber()}</td>
-			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>
 	</c:forEach>
     

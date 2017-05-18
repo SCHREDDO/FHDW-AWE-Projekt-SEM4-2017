@@ -278,7 +278,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoAdministrationEmployee(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (peid, task_area) VALUES (?, ?)";
+		String sql = "INSERT INTO administration_employee (peid, task_area) VALUES (?, ?)";
 
 		PreparedStatement statement;
 		
@@ -304,7 +304,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoGrade(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (stid, mlid, gradenumber, gradepercent) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO grade (stid, mlid, gradenumber, gradepercent) VALUES (?, ?, ?, ?)";
 
 		PreparedStatement statement;
 			
@@ -332,7 +332,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoLecturer(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (peid, is_honouree_lecturer) VALUES (?, ?)";
+		String sql = "INSERT INTO lecturer (peid, is_honouree_lecturer) VALUES (?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -358,7 +358,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoModul(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (name, short, creditpoints) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO modul (name, short, creditpoints) VALUES (?, ?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -385,7 +385,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoModulLecturer(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (moid, leid) VALUES (?, ?)";
+		String sql = "INSERT INTO modul_lecturer (moid, leid) VALUES (?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -412,7 +412,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoPerson(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (riid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO person (riid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement statement;
 			
@@ -444,7 +444,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoRight(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (name) VALUES (?)";
+		String sql = "INSERT INTO permission (name) VALUES (?)";
 		
 		PreparedStatement statement;
 			
@@ -469,7 +469,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoStudent(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (peid, sgid, matrikelnumber) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO student (peid, sgid, matrikelnumber) VALUES (?, ?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -496,7 +496,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoStudyGroup(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (short) VALUES (?)";
+		String sql = "INSERT INTO study_group (short) VALUES (?)";
 		
 		PreparedStatement statement;
 			
@@ -521,7 +521,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	
 	public Boolean insertIntoModuleLecturerStudyGroup(List<Object[]> data)
 	{
-		String sql = "INSERT INTO $TableName (sgid, moid, leid) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO module_lecturer_study_group (sgid, moid, leid) VALUES (?, ?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -548,7 +548,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateAdministrationEmployee(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET peid = ?, task_area = ? WHERE aeid = ?";
+		String sql = "UPDATE administration_employee SET peid = ?, task_area = ? WHERE aeid = ?";
 			
 		PreparedStatement statement;
 			
@@ -575,7 +575,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateGrade(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET stid = ?, mlid = ?, gradenumber = ?, gradepercent = ? WHERE grid = ?";
+		String sql = "UPDATE grade SET stid = ?, mlid = ?, gradenumber = ?, gradepercent = ? WHERE grid = ?";
 
 		PreparedStatement statement;
 			
@@ -604,7 +604,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateLecturer(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET peid = ?, is_honouree_lecturer = ? WHERE leid = ?";
+		String sql = "UPDATE lecturer SET peid = ?, is_honouree_lecturer = ? WHERE leid = ?";
 
 		PreparedStatement statement;
 			
@@ -631,7 +631,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateModul(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET name = ?, short = ?, creditpoints = ? WHERE moid = ?";
+		String sql = "UPDATE modul SET name = ?, short = ?, creditpoints = ? WHERE moid = ?";
 
 		PreparedStatement statement;
 			
@@ -659,7 +659,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateModulLecturer(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET moid = ?, leid = ? WHERE mlid = ?";
+		String sql = "UPDATE modul_lecturer SET moid = ?, leid = ? WHERE mlid = ?";
 
 		PreparedStatement statement;
 			
@@ -686,7 +686,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updatePerson(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET riid = ?, firstname = ?, larstname = ?, short = ?, password = ?, e_mail = ?, address = ?, phone_number = ?  WHERE peid = ?";
+		String sql = "UPDATE person SET riid = ?, firstname = ?, larstname = ?, short = ?, password = ?, e_mail = ?, address = ?, phone_number = ?  WHERE peid = ?";
 			
 		PreparedStatement statement;
 			
@@ -719,7 +719,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateRight(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET name = ? WHERE riid = ?";
+		String sql = "UPDATE permission SET name = ? WHERE riid = ?";
 
 		PreparedStatement statement;
 			
@@ -745,7 +745,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateStudent(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET peid = ?, sgid = ?, matrikelnumber = ? WHERE stid = ?";
+		String sql = "UPDATE student SET peid = ?, sgid = ?, matrikelnumber = ? WHERE stid = ?";
 
 		PreparedStatement statement;
 			
@@ -773,7 +773,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateStudyGroup(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET short = ? WHERE sgid = ?";
+		String sql = "UPDATE study_group SET short = ? WHERE sgid = ?";
 
 		PreparedStatement statement;
 			
@@ -799,7 +799,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 	
 	public Boolean updateModuleLecturerStudyGroup(List<Object[]> data)
 	{
-		String sql = "UPDATE $TableName SET sgid = ?, moid = ?, leid = ? WHERE msid = ?";
+		String sql = "UPDATE module_lecturer_study_group SET sgid = ?, moid = ?, leid = ? WHERE msid = ?";
 
 		PreparedStatement statement;
 			

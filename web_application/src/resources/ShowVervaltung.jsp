@@ -54,8 +54,8 @@
 
     <div class="panel panel-info">
         <div class="panel-heading">
-            <!-- GET name -->
-            <h3 class="panel-title">getName</h3>
+            <%= request.getParameter("administrationemployee")  %>
+            <h3 class="panel-title">${administrationemployee.getFirstname()} ${administrationemployee.getLarstname}</h3>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -65,41 +65,26 @@
                     <table class="table table-user-information">
                         <tbody>
                         <tr>
-                            <td>Kurs:</td>
-                            <td>getKurs</td>
+                            <td>Kürzel:</td>
+                            <td>${administrationemployee.getShort()}</td>
                         </tr>
                         <tr>
-                            <td>Matrikelnr</td>
-                            <td>getMatrikelNr</td>
+                            <td>Email:</td>
+                            <td>${administrationemployee.getE_mail()}</td>
                         </tr>
                         <tr>
-                            <td>Geburtstag</td>
-                            <td>getBday</td>
-                        </tr>
-
-                        <tr>
-                        <tr>
-                            <td>Ort</td>
-                            <td></td>
+                            <td>Addresse:</td>
+                            <td>${administrationemployee.getAddress()}</td>
                         </tr>
                         <tr>
-                            <td>Strasse</td>
-                            <td></td>
-                        </tr>
                         <tr>
-                            <td>Plz</td>
-                            <td></td>
+                            <td>Telephone:</td>
+                            <td>${administrationemployee.getPhone_number()}</td>
                         </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><a href="mailto:info@support.com">info@support.com</a></td>
+						<tr>
+                            <td>Aufgabenbereich:</td>
+                            <td>${administrationemployee.getTask_area()}</td>
                         </tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                        </td>
-
-                        </tr>
-
                         </tbody>
                     </table>
                 </div>

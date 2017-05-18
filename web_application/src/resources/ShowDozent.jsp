@@ -55,7 +55,8 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <!-- GET name -->
-            <h3 class="panel-title">getName</h3>
+			<%= request.getParameter("lecturer")  %>
+            <h3 class="panel-title">${lecturer.getFirstname()} ${lecturer.getLarstname}</h3>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -65,41 +66,26 @@
                     <table class="table table-user-information">
                         <tbody>
                         <tr>
-                            <td>Kurs:</td>
-                            <td>getKurs</td>
+                            <td>Kürzel:</td>
+                            <td>${lecturer.getShort()}</td>
                         </tr>
                         <tr>
-                            <td>Matrikelnr</td>
-                            <td>getMatrikelNr</td>
+                            <td>Email:</td>
+                            <td>${lecturer.getE_mail()}</td>
                         </tr>
                         <tr>
-                            <td>Geburtstag</td>
-                            <td>getBday</td>
-                        </tr>
-
-                        <tr>
-                        <tr>
-                            <td>Ort</td>
-                            <td></td>
+                            <td>Addresse:</td>
+                            <td>${lecturer.getAddress()}</td>
                         </tr>
                         <tr>
-                            <td>Strasse</td>
-                            <td></td>
-                        </tr>
                         <tr>
-                            <td>Plz</td>
-                            <td></td>
+                            <td>Telephone:</td>
+                            <td>${lecturer.getPhone_number()}</td>
                         </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><a href="mailto:info@support.com">info@support.com</a></td>
+						<tr>
+                            <td>Honorardozent:</td>
+                            <td>${lecturer.getIs_honouree_lecturer()}</td>
                         </tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                        </td>
-
-                        </tr>
-
                         </tbody>
                     </table>
                 </div>
