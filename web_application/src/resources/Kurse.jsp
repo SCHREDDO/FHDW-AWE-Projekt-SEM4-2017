@@ -61,10 +61,8 @@
 <form action="createKurs.jsp" method="get">
     <fieldset>
         <legend></legend>
-        <label for="fistName">Name</label>
-        <input type="text" name="Name" /> <br/>
-        <label for="lastName">Creditpoints</label>
-        <input type="text" name="points" /> <br/>
+        <label for="shortname">Kurzel</label>
+        <input type="text" name="shortname" /> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>
@@ -85,13 +83,11 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("students")  %>
-    <c:forEach items="${students}" var="students">
+    <%= request.getParameter("studygroups")  %>
+    <c:forEach items="${studygroups}" var="studygroups">
     	<tr>
-    		<th scope="row">${students.getStid()}</th>      
-	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
-	        <td>${students.getShortname()}</td>
-	        <td>${students.getMatrikelnumber()}</td>
+    		<th scope="row">${studygroups.getStid()}</th>      
+	        <td>${studygroups.getShortName()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

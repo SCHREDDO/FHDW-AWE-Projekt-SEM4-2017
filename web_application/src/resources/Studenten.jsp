@@ -60,16 +60,21 @@
 </nav>
 <form action="createStudent.jsp" method="get">
     <fieldset>
+		<%= request.getParameter("studygroups")  %>
+		<%= request.getParameter("persons")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <select name="peid">
+		<c:forEach items="${persons}" var="persons">
+			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+		</c:forEach>
         </select>
+		<select name="peid">
+		<c:forEach items="${studygroups}" var="persons">
+					<option value="${studygroups.getSgid()}">${studygroups.getShortName()}</</option>
+		</c:forEach>
+        </select>
+        <label for="matrikelnumber">Matrikelnumber</label>
+        <input type="text" name="matrikelnumber" /> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>

@@ -58,7 +58,7 @@
 		<c:forEach items="${persons}" var="persons">
 			<c:choose>
 				<c:when test="${persons.getPeid() == administrationemployee.getPeid()}">
-					<option value="${persons.getPeid()}" selected="selected">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+					<option value="${persons.getPeid()}" selected="selected">${persons.getFirstname()} ${persons.getLarstname()}</option>
 				</c:when>    
 				<c:otherwise>
 					<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>

@@ -51,16 +51,15 @@
 </nav>
 <form action="createVerwaltung.jsp" method="get">
     <fieldset>
+		<%= request.getParameter("persons")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <select name="peid">
+		<c:forEach items="${persons}" var="persons">
+			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</option>
+		</c:forEach>
         </select>
+        <label for="task_area">Aufgabenbereich</label>
+        <input type="text" name="task_area"  value="{administrationemployee.getTask_area()}"/> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>
@@ -73,6 +72,7 @@
     <tr>
         <th>#</th>
         <th class="col-md-3 col-xs-3">Name / Nachname</th>
+		<th class="col-md-3 col-xs-3">Kurzel</th>
         <th class="col-md-3 col-xs-3">Adresse</th>
         <th class="col-md-3 col-xs-3">Email</th>
     </tr>
@@ -82,13 +82,14 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("students")  %>
-    <c:forEach items="${students}" var="students">
+    <%= request.getParameter("administrationemployees")  %>
+    <c:forEach items="${administrationemployees}" var="administrationemployees">
     	<tr>
-    		<th scope="row">${students.getStid()}</th>      
-	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
-	        <td>${students.getShortname()}</td>
-	        <td>${students.getMatrikelnumber()}</td>
+    		<th scope="row">${administrationemployees.getPeid()}</th>      
+	        <td>${administrationemployees.getFirstname()} ${administrationemployees.getLarstname()}</td>
+	        <td>${administrationemployees.getShortname()}</td>
+	        <td>${administrationemployees.getAdress()}</td>
+			<td>${administrationemployees.getE_mail()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

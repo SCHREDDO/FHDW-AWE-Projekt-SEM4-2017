@@ -60,15 +60,26 @@
 </nav>
 <form action="createPerson.jsp" method="get">
     <fieldset>
+        <%= request.getParameter("permissions")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <label for="fistname">First Name</label>
+        <input type="text" name="firstname"/> <br/>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname"/> <br/>
+		<label for="shortname">Kurzel</label>
+        <input type="text" name="shortname"/> <br/>
+		 <label for="password">Password</label>
+        <input type="text" name="password"/> <br/>
+        <label for="e_mail">Email</label>
+        <input type="text" name="e_mail"/> <br/>
+		<label for="address">Addresse</label>
+        <input type="text" name="address"/> <br/>
+		<label for="phone_number">Telephon</label>
+        <input type="text" name="phone_number"/> <br/>
+        <select name="pid">
+		c:forEach items="${permissions}" var="permissions">
+			<option value="${permissions.getRiid()}" >${permissions.getName()}</</option>
+		</c:forEach>
         </select>
         <input type="submit" value="submit">
     </fieldset>
@@ -82,6 +93,7 @@
     <tr>
         <th>#</th>
         <th class="col-md-3 col-xs-3">Name / Nachname</th>
+		<th class="col-md-3 col-xs-3">Kurzel</th>
         <th class="col-md-3 col-xs-3">Adresse</th>
         <th class="col-md-3 col-xs-3">Email</th>
     </tr>
@@ -91,13 +103,14 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("students")  %>
-    <c:forEach items="${students}" var="students">
+    <%= request.getParameter("persons")  %>
+    <c:forEach items="${persons}" var="persons">
     	<tr>
-    		<th scope="row">${students.getStid()}</th>      
-	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
-	        <td>${students.getShortname()}</td>
-	        <td>${students.getMatrikelnumber()}</td>
+    		<th scope="row">${persons.getStid()}</th>      
+	        <td>${persons.getFirstname()} ${persons.getLarstname()}</td>
+	        <td>${persons.getShortname()}</td>
+	        <td>${persons.getAdress()}</td>
+			<td>${persons.getE_mail()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

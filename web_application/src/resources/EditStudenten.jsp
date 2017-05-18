@@ -67,7 +67,7 @@
 			</c:choose>
 		</c:forEach>
         </select>
-		<select name="peid">
+		<select name="sgid">
 		<c:forEach items="${studygroups}" var="persons">
 			<c:choose>
 				<c:when test="${studygroups.getSgid() == student.getGoup().getSgid()}">
@@ -79,7 +79,7 @@
 			</c:choose>
 		</c:forEach>
         </select>
-        <label for="task_area">Matrikelnumber</label>
+        <label for="matrikelnumber">Matrikelnumber</label>
         <input type="text" name="matrikelnumber"  value="{student.getMatrikelnumber()}"/> <br/>
         <input type="submit" value="submit">
     </fieldset>

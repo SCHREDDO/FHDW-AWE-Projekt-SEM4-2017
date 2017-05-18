@@ -58,16 +58,16 @@
         <input type="text" name="firstname" value="{person.getFirstname()}"/> <br/>
         <label for="lastname">Last Name</label>
         <input type="text" name="lastname" value="{person.getLastname()}"/> <br/>
-		<label for="lastname">Kurzel</label>
+		<label for="shortname">Kurzel</label>
         <input type="text" name="shortname" value="{person.getShortname()}"/> <br/>
-		 <label for="email">Password</label>
+		 <label for="password">Password</label>
         <input type="text" name="password" value="{person.getPassword()}"/> <br/>
-        <label for="email">Email</label>
+        <label for="e_mail">Email</label>
         <input type="text" name="e_mail" value="{person.getE_mail()}"/> <br/>
-		<label for="email">Addresse</label>
+		<label for="address">Addresse</label>
         <input type="text" name="address" value="{person.getAddress()}"/> <br/>
-		<label for="email">Telephon</label>
-        <input type="text" name="phone_number " value="{person.getPhone_number()}"/> <br/>
+		<label for="phone_number">Telephon</label>
+        <input type="text" name="phone_number" value="{person.getPhone_number()}"/> <br/>
         <select name="pid">
 		c:forEach items="${permission}" var="permission">
 			<c:choose>

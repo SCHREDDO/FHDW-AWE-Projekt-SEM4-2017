@@ -291,7 +291,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setString(2, (String)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -319,7 +319,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(3, (int)temp[3]);
 			statement.setInt(4, (int)temp[4]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -345,7 +345,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setString(2, (String)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -372,7 +372,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setString(2, (String)temp[2]);
 			statement.setInt(3, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -398,7 +398,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setInt(2, (int)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -431,7 +431,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setString(7, (String)temp[7]);
 			statement.setInt(8, (int)temp[8]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -456,7 +456,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			
 			statement.setString(1, (String)temp[1]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -483,7 +483,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[2]);
 			statement.setInt(1, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -508,7 +508,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			
 			statement.setString(1, (String)temp[1]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -535,7 +535,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(2, (int)temp[2]);
 			statement.setInt(3, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -562,7 +562,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setString(2, (String)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -591,7 +591,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(3, (int)temp[3]);
 			statement.setInt(4, (int)temp[4]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -618,7 +618,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setInt(2, (int)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -646,7 +646,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setString(2, (String)temp[2]);
 			statement.setInt(3, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -673,7 +673,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(1, (int)temp[1]);
 			statement.setInt(2, (int)temp[2]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -706,7 +706,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setString(7, (String)temp[7]);
 			statement.setInt(8, (int)temp[8]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -732,7 +732,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(2, (int)temp[0]);
 			statement.setString(1, (String)temp[1]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -760,7 +760,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(2, (int)temp[2]);
 			statement.setInt(3, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -786,7 +786,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(2, (int)temp[0]);
 			statement.setString(1, (String)temp[1]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{
@@ -814,7 +814,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 			statement.setInt(2, (int)temp[2]);
 			statement.setInt(3, (int)temp[3]);
 			
-			statement.executeQuery();
+			statement.execute();
 		} 
 		catch (Exception e)
 		{

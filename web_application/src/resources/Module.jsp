@@ -52,15 +52,12 @@
 <form action="createModule.jsp" method="get">
     <fieldset>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
-        </select>
+        <label for="name">Name</label>
+        <input type="text" name="name" /> <br/>
+        <label for="shortname">Kurzel</label>
+        <input type="text" name="shortname" /> <br/>
+        <label for="creditpoints">Creditpoints</label>
+        <input type="text" name="creditpoints" /> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>
@@ -72,9 +69,9 @@
     <thead>
     <tr>
         <th>#</th>
-        <th class="col-md-3 col-xs-3">Name / Nachname</th>
+        <th class="col-md-3 col-xs-3">Name</th>
         <th class="col-md-3 col-xs-3">Kürzel</th>
-        <th class="col-md-3 col-xs-3">Matrikelnr</th>
+        <th class="col-md-3 col-xs-3">Creditpoints</th>
     </tr>
     <tr class="warning no-result">
         <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -82,13 +79,13 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("students")  %>
-    <c:forEach items="${students}" var="students">
+    <%= request.getParameter("modules")  %>
+    <c:forEach items="${modules}" var="modules">
     	<tr>
-    		<th scope="row">${students.getStid()}</th>      
-	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
-	        <td>${students.getShortname()}</td>
-	        <td>${students.getMatrikelnumber()}</td>
+    		<th scope="row">${modules.getMoid()}</th>      
+	        <td>${modules.getName()}</td>
+	        <td>${modules.getShortname()}</td>
+	        <td>${modules.getCreditpoints()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

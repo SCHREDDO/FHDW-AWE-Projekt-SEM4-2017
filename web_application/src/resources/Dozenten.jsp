@@ -51,15 +51,16 @@
 </nav>
 <form action="createDozent" method="get">
     <fieldset>
+		<%= request.getParameter("persons")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <select name="peid">
+		<c:forEach items="${persons}" var="persons">
+			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</option>
+		</c:forEach>
+        </select>
+        <select name="is_honouree_lecturer">
+            <option value="1">Ja</option>
+			<option value="0">Nein</option>
         </select>
         <input type="submit" value="submit">
     </fieldset>
