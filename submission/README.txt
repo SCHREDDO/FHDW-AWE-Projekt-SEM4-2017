@@ -1,9 +1,10 @@
-web_application.jar: die application
+web_application.jar: die Application
+/web_application: Projekt der Application
 database: die SQLite Datenbank
 SQLScript.txt: verwendetes Scrip zur erstellung
 *.png: Screenshots der laufenden Anwendung
 
-- Die Datei database in den Ordner /SQLite plaziren.(root path/homeverzeichnis)
+- Die Datei database in den Ordner /SQLite plaziren.(linux: root path/homeverzeichnis; Windows :\SQLite)
 - web_application.jar Starten
 - mit einen Webbrowser die Seite http://localhost:8080/Startseite ansteuern.
 
