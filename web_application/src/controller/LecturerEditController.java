@@ -32,13 +32,13 @@ public class LecturerEditController extends HttpServlet{
 		
 		Lecturer lecturer = new Lecturer();
 		
-		List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.lecturer, Integer.parseInt(req.getParameter("")));
+		List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.lecturer, Integer.parseInt(req.getParameter("leid")));
 		
 		lecturer = cac.ConvertToLecturero(objs.get(0));
 		
 		req.setAttribute("lecturer", lecturer);
 		req.setAttribute("persons", persons);
 
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/EditDozent.jsp").forward(req, resp);
 	}
 }

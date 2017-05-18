@@ -26,11 +26,11 @@ public class StudentUpdateController extends HttpServlet{
 		Student student = new Student();
 		StudyGroup studygroup = new StudyGroup();
 		
-		studygroup.setSgid(Integer.parseInt(req.getParameter("")));
+		studygroup.setSgid(Integer.parseInt(req.getParameter("sgid")));
 		
-		student.setPeid(Integer.parseInt(req.getParameter("")));
-		student.setStid(Integer.parseInt(req.getParameter("")));
-		student.setMatrikelnumber(Integer.parseInt(req.getParameter("")));
+		student.setPeid(Integer.parseInt(req.getParameter("peid")));
+		student.setStid(Integer.parseInt(req.getParameter("stid")));
+		student.setMatrikelnumber(Integer.parseInt(req.getParameter("matrikelnumber")));
 		student.setGroup(studygroup);
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
@@ -45,6 +45,6 @@ public class StudentUpdateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}	
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/UpdateStudenten.jsp").forward(req, resp);
 	}
 }

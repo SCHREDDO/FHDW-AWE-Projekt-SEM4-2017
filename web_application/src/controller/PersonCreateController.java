@@ -23,16 +23,16 @@ public class PersonCreateController extends HttpServlet{
 
 		Person person = new Person();
 		
-		person.setFirstname(req.getParameter(""));
-		person.setLarstname(req.getParameter(""));
-		person.setShortname(req.getParameter(""));
+		person.setFirstname(req.getParameter("firstname"));
+		person.setLarstname(req.getParameter("lastname"));
+		person.setShortname(req.getParameter("shortname"));
 		Permission p = new Permission();
-		p.setRiid(Integer.parseInt(req.getParameter("")));
+		p.setRiid(Integer.parseInt(req.getParameter("pid")));
 		person.setRight(p);
-		person.setE_mail(req.getParameter(""));
-		person.setPassword(req.getParameter(""));
-		person.setAddreass(req.getParameter(""));
-		person.setPhoneNumber(Integer.parseInt(req.getParameter("")));
+		person.setE_mail(req.getParameter("e_mail"));
+		person.setPassword(req.getParameter("password"));
+		person.setAddreass(req.getParameter("address"));
+		person.setPhoneNumber(Integer.parseInt(req.getParameter("phone_number")));
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		temp.add(cac.ConvertToPerson(person));
@@ -46,6 +46,6 @@ public class PersonCreateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/CreatePerson.jsp").forward(req, resp);
 	}
 }

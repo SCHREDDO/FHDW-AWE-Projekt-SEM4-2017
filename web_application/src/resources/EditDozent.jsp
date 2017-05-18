@@ -54,6 +54,7 @@
 		<%= request.getParameter("lecturer")  %>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
+		<input type="hidden" name="leid" value="${lecturer.getPeid()}">
         <select name="peid">
 		<c:forEach items="${persons}" var="persons">
 			<c:choose>

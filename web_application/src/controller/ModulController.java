@@ -32,6 +32,6 @@ public class ModulController extends HttpServlet
 		
 		req.setAttribute("moduls", moduls);
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/Module.jsp").forward(req, resp);
 	}
 }

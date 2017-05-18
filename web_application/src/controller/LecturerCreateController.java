@@ -23,8 +23,8 @@ public class LecturerCreateController extends HttpServlet{
 		
 		Lecturer lecturer = new Lecturer();
 		
-		lecturer.setPeid(Integer.parseInt(req.getParameter("")));
-		if (req.getParameter("") == "")
+		lecturer.setPeid(Integer.parseInt(req.getParameter("peid")));
+		if (req.getParameter("is_honouree_lecturer") == "1")
 		{
 			lecturer.setIs_honouree_lecturer(true);
 		}

@@ -23,9 +23,9 @@ public class AdministrationEmployeeUpdateController extends HttpServlet{
 		
 		AdministrationEmployee administrationemployee = new AdministrationEmployee();
 		
-		administrationemployee.setPeid(Integer.parseInt(req.getParameter("")));
-		administrationemployee.setAeid(Integer.parseInt(req.getParameter("")));
-		administrationemployee.setTask_area(req.getParameter(""));
+		administrationemployee.setPeid(Integer.parseInt(req.getParameter("peid")));
+		administrationemployee.setAeid(Integer.parseInt(req.getParameter("aeid")));
+		administrationemployee.setTask_area(req.getParameter("task_area"));
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		temp.add(cac.ConvertToAdministrationEmployeeo(administrationemployee));
@@ -39,6 +39,6 @@ public class AdministrationEmployeeUpdateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/UpdateVervaltung.jsp").forward(req, resp);
 	}
 }

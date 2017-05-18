@@ -79,13 +79,13 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("modules")  %>
-    <c:forEach items="${modules}" var="modules">
+    <%= request.getParameter("moduls")  %>
+    <c:forEach items="${moduls}" var="moduls">
     	<tr>
-    		<th scope="row">${modules.getMoid()}</th>      
-	        <td>${modules.getName()}</td>
-	        <td>${modules.getShortname()}</td>
-	        <td>${modules.getCreditpoints()}</td>
+    		<th scope="row">${moduls.getMoid()}</th>      
+	        <td>${moduls.getName()}</td>
+	        <td>${moduls.getShortname()}</td>
+	        <td>${moduls.getCreditpoints()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

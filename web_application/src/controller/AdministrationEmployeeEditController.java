@@ -39,6 +39,6 @@ public class AdministrationEmployeeEditController extends HttpServlet{
 		req.setAttribute("administrationemployee", administrationemployee);
 		req.setAttribute("persons", persons);
 
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/EditVervaltung.jsp").forward(req, resp);
 	}
 }

@@ -24,11 +24,11 @@ public class StudentShowController extends HttpServlet{
 		Student student = new Student();
 		List<Object[]> temp = new ArrayList<Object[]>();
 		
-		temp = db.getObjectDataPersonStudent(Integer.parseInt(req.getParameter("")));
+		temp = db.getObjectDataPersonStudent(Integer.parseInt(req.getParameter("stid")));
 		student = cac.ConvertToStudent(temp.get(0));
 		
 		req.setAttribute("student", student);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/ShowStudent.jsp").forward(req, resp);
 	}
 }

@@ -23,9 +23,9 @@ public class LecturerUpdateController extends HttpServlet{
 		
 		Lecturer lecturer = new Lecturer();
 		
-		lecturer.setPeid(Integer.parseInt(req.getParameter("")));
-		lecturer.setLeid(Integer.parseInt(req.getParameter("")));
-		if (req.getParameter("") == "1")
+		lecturer.setPeid(Integer.parseInt(req.getParameter("peid")));
+		lecturer.setLeid(Integer.parseInt(req.getParameter("leid")));
+		if (req.getParameter("is_honouree_lecturer") == "1")
 		{
 			lecturer.setIs_honouree_lecturer(true);
 		}
@@ -46,6 +46,6 @@ public class LecturerUpdateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/UpdateDozenten.jsp").forward(req, resp);
 	}
 }

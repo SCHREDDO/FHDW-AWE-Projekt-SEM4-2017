@@ -31,7 +31,7 @@ public class PersonEditController extends HttpServlet{
 			permission.add(cac.ConvertToRight(temp.get(i)));
 		}
 		
-		temp = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.person, Integer.parseInt(req.getParameter("")));
+		temp = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.person, Integer.parseInt(req.getParameter("peid")));
 		
 		person = cac.ConvertToPerson(temp.get(0));
 		
@@ -39,6 +39,6 @@ public class PersonEditController extends HttpServlet{
 		req.setAttribute("person", person);
 		
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/EditPerson.jsp").forward(req, resp);
 	}
 }

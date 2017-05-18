@@ -68,7 +68,7 @@
 			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>
 		</c:forEach>
         </select>
-		<select name="peid">
+		<select name="sgid">
 		<c:forEach items="${studygroups}" var="persons">
 					<option value="${studygroups.getSgid()}">${studygroups.getShortName()}</</option>
 		</c:forEach>

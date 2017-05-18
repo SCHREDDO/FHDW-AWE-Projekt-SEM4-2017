@@ -54,6 +54,7 @@
 		<%= request.getParameter("permission")  %>
 		<%= request.getParameter("person")  %>
         <legend></legend>
+		<input type="hidden" name="peid" value="${person.getPeid()}">
         <label for="fistname">First Name</label>
         <input type="text" name="firstname" value="{person.getFirstname()}"/> <br/>
         <label for="lastname">Last Name</label>

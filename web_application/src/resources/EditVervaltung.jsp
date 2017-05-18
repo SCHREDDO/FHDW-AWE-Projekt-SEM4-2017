@@ -54,6 +54,7 @@
        <%= request.getParameter("administrationemployee")  %>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
+		<input type="hidden" name="aeid" value="administrationemployee.getAeid()">
         <select name="peid">
 		<c:forEach items="${persons}" var="persons">
 			<c:choose>

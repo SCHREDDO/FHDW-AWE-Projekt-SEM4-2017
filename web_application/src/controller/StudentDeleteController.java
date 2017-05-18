@@ -21,7 +21,7 @@ public class StudentDeleteController extends HttpServlet{
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
 
-		if(db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.student))
+		if(db.delete(Integer.parseInt(req.getParameter("stid")), DBAccessJDBCSQLite.TableName.student))
 		{
 			req.setAttribute("info", "");
 		}
@@ -30,6 +30,6 @@ public class StudentDeleteController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/DeleteStudenten.jsp").forward(req, resp);
 	}
 }

@@ -24,11 +24,11 @@ public class LecturerShowController extends HttpServlet{
 		Lecturer lecturer = new Lecturer();
 		List<Object[]> temp = new ArrayList<Object[]>();
 		
-		temp = db.getObjectDataPersonLecturer(Integer.parseInt(req.getParameter("")));
+		temp = db.getObjectDataPersonLecturer(Integer.parseInt(req.getParameter("leid")));
 		lecturer = cac.ConvertToLecturer(temp.get(0));
 		
 		req.setAttribute("lecturer", lecturer);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/ShowDozent.jsp").forward(req, resp);
 	}
 }

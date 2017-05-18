@@ -58,9 +58,9 @@ public class ConvertObjectAndClass {
 		Modul temp = new Modul();
 		
 		temp.setMoid((int)obj[0]);
-		temp.setName((String)obj[0]);
-		temp.setShort_name((String)obj[0]);
-		temp.setCreditpoints((int)obj[0]);
+		temp.setName((String)obj[1]);
+		temp.setShort_name((String)obj[2]);
+		temp.setCreditpoints((int)obj[3]);
 		
 		return temp;
 	}
@@ -85,7 +85,7 @@ public class ConvertObjectAndClass {
 		Permission temp = new Permission();
 		
 		temp.setRiid((int)obj[0]);
-		temp.setName((String)obj[0]);
+		temp.setName((String)obj[1]);
 		
 		return temp;
 	}
@@ -144,19 +144,16 @@ public class ConvertObjectAndClass {
 		return temp;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public Student ConvertToStudento(Object[] obj)
 	{
 		Student temp = new Student();
+		
+		temp.setStid((int)obj[0]);
+		temp.setPeid((int)obj[1]);
+		StudyGroup studyGroup = new StudyGroup();
+		studyGroup.setSgid((int)obj[2]);
+		temp.setGroup(studyGroup);
+		temp.setMatrikelnumber((int)obj[3]);
 		
 		return temp;
 	}
@@ -165,22 +162,39 @@ public class ConvertObjectAndClass {
 	{
 		AdministrationEmployee temp = new AdministrationEmployee();
 		
+		temp.setAeid((int)obj[0]);
+		temp.setPeid((int)obj[1]);
+		temp.setTask_area((String)obj[2]);
+		
 		return temp;
 	}
-	
 	
 	public Lecturer ConvertToLecturero(Object[] obj)
 	{
 		Lecturer temp = new Lecturer();
 		
+		temp.setLeid((int)obj[0]);
+		temp.setPeid((int)obj[1]);
+		if ((int)obj[2] == 1) 
+		{
+			temp.setIs_honouree_lecturer(true);
+		}
+		else
+		{
+			temp.setIs_honouree_lecturer(false);
+		}
+		
 		return temp;
 	}
-	
-	
 	
 	public Object[] ConvertToStudento(Student obj)
 	{
 		Object[] temp = new Object[11];
+		
+		temp[0] = obj.getStid();
+		temp[1] = obj.getPeid();
+		temp[2] = obj.getGroup().getSgid();
+		temp[3] = obj.getMatrikelnumber();
 		
 		return temp;
 	}
@@ -189,48 +203,44 @@ public class ConvertObjectAndClass {
 	{
 		Object[] temp = new Object[11];
 		
+		temp[0] = obj.getAeid();
+		temp[1] = obj.getPeid();
+		temp[2] = obj.getTask_area();
+		
 		return temp;
 	}
-	
 	
 	public Object[] ConvertToLecturero(Lecturer obj)
 	{
 		Object[] temp = new Object[11];
 		
+		temp[0] = obj.getLeid();
+		temp[1] = obj.getPeid();
+		if (obj.getIs_honouree_lecturer()) 
+		{
+			temp[2] = 1;
+		}
+		else
+		{
+			temp[2] = 0;
+		}
+		
 		return temp;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public Object[] ConvertToPerson(Person obj)
 	{
 		Object[] temp = new Object[11];
 		
 		temp[0] = obj.getPeid();
-		temp[0] = obj.getFirstname();
-		temp[0] = obj.getLarstname();
-		temp[0] = obj.getShortname();
-		temp[0] = obj.getRight().getRiid();
-		temp[0] = obj.getE_mail();
-		temp[0] = obj.getPassword();
-		temp[0] = obj.getAddreass();
-		temp[0] = obj.getPhoneNumber();
+		temp[1] = obj.getFirstname();
+		temp[2] = obj.getLarstname();
+		temp[3] = obj.getShortname();
+		temp[4] = obj.getRight().getRiid();
+		temp[5] = obj.getE_mail();
+		temp[6] = obj.getPassword();
+		temp[7] = obj.getAddreass();
+		temp[8] = obj.getPhoneNumber();
 		
 		return temp;
 	}

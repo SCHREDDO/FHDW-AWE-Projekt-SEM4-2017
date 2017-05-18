@@ -21,8 +21,8 @@ public class AdministrationEmployeeDeleteController extends HttpServlet{
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
 		
-		db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.administration_employee);
+		db.delete(Integer.parseInt(req.getParameter("aeid")), DBAccessJDBCSQLite.TableName.administration_employee);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/DeleteVervaltung.jsp").forward(req, resp);
 	}
 }

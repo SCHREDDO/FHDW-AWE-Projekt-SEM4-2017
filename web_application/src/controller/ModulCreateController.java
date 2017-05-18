@@ -23,9 +23,9 @@ public class ModulCreateController extends HttpServlet{
 		
 		Modul modul = new Modul();
 		
-		modul.setName(req.getParameter(""));
-		modul.setShort_name(req.getParameter(""));
-		modul.setCreditpoints(Integer.parseInt(req.getParameter("")));
+		modul.setName(req.getParameter("name"));
+		modul.setShort_name(req.getParameter("shortname"));
+		modul.setCreditpoints(Integer.parseInt(req.getParameter("creditpoints")));
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		temp.add(cac.ConvertToModul(modul));
@@ -39,6 +39,6 @@ public class ModulCreateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/CreateModul.jsp").forward(req, resp);
 	}
 }

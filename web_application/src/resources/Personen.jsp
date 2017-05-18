@@ -103,14 +103,14 @@
     </thead>
     <tbody>
     
-    <%= request.getParameter("persons")  %>
-    <c:forEach items="${persons}" var="persons">
+    <%= request.getParameter("poersons")  %>
+    <c:forEach items="${poersons}" var="poersons">
     	<tr>
-    		<th scope="row">${persons.getStid()}</th>      
-	        <td>${persons.getFirstname()} ${persons.getLarstname()}</td>
-	        <td>${persons.getShortname()}</td>
-	        <td>${persons.getAdress()}</td>
-			<td>${persons.getE_mail()}</td>
+    		<th scope="row">${poersons.getStid()}</th>      
+	        <td>${poersons.getFirstname()} ${poersons.getLarstname()}</td>
+	        <td>${poersons.getShortname()}</td>
+	        <td>${poersons.getAdress()}</td>
+			<td>${poersons.getE_mail()}</td>
 			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
 			<!--<td>Buttons Edit / Delete</td>-->
     	</tr>

@@ -33,7 +33,7 @@ public class Index {
 		contect.addServlet(LecturerDeleteController.class, "/Dozenten/Delete");
 		contect.addServlet(LecturerShowController.class, "/Dozenten/Show");
 		
-		contect.addServlet(StudentController.class, "/Studenten/");
+		contect.addServlet(StudentController.class, "/Studenten.jsp");
 		contect.addServlet(StudentCreateController.class, "/Studenten/Create");
 		contect.addServlet(StudentEditController.class, "/Studenten/Edit");
 		contect.addServlet(StudentUpdateController.class, "/Studenten/Update");
@@ -70,8 +70,6 @@ public class Index {
 		//contect.addServlet(deleteStudent.class, "/deleteStudent");
 		//contect.addServlet(newStudent.class, "/newStudent");
 		//contect.addServlet(newDozent.class, "/newDozent");
-
-
 
 		server.setHandler(contect);
 		

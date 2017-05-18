@@ -21,8 +21,8 @@ public class LecturerDeleteController extends HttpServlet{
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
 		
-		db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.lecturer);
+		db.delete(Integer.parseInt(req.getParameter("leid")), DBAccessJDBCSQLite.TableName.lecturer);
 		
-		getServletContext().getRequestDispatcher("/deleteDozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/DeleteDozenten.jsp").forward(req, resp);
 	}
 }

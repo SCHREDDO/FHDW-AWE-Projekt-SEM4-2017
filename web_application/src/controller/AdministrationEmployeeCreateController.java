@@ -23,8 +23,8 @@ public class AdministrationEmployeeCreateController extends HttpServlet{
 		
 		AdministrationEmployee administrationemployee = new AdministrationEmployee();
 		
-		administrationemployee.setPeid(Integer.parseInt(req.getParameter("")));
-		administrationemployee.setTask_area(req.getParameter(""));
+		administrationemployee.setPeid(Integer.parseInt(req.getParameter("peid")));
+		administrationemployee.setTask_area(req.getParameter("task_area"));
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		temp.add(cac.ConvertToAdministrationEmployeeo(administrationemployee));
@@ -38,6 +38,6 @@ public class AdministrationEmployeeCreateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/CreateVervaltung.jsp").forward(req, resp);
 	}
 }

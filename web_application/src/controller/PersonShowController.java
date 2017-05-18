@@ -26,7 +26,7 @@ public class PersonShowController extends HttpServlet{
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		
-		person.setPeid(Integer.parseInt(req.getParameter("")));
+		person.setPeid(Integer.parseInt(req.getParameter("peid")));
 		
 		temp = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.person, person.getPeid());
 		person = cac.ConvertToPerson(temp.get(0));
@@ -36,6 +36,6 @@ public class PersonShowController extends HttpServlet{
 		
 		req.setAttribute("person", person);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/ShowPerson.jsp").forward(req, resp);
 	}
 }

@@ -47,13 +47,6 @@ public class Startseite extends HttpServlet {
 					Index.setGoodLogin(true);
 				}
 			}
-			
-
-			
-			
-			
 			System.out.println(req.getParameter("name"));
-			
-
 		}
 	}

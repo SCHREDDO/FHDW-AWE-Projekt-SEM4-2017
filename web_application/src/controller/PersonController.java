@@ -22,6 +22,7 @@ public class PersonController extends HttpServlet{
 		db.connectTODB();
 		
 		List<Person> poersons = new ArrayList<Person>();
+		List<Permission> permissions = new ArrayList<Permission>();
 		
 		List<Object[]> objs = db.getObjectData(DBAccessJDBCSQLite.TableName.person);
 		
@@ -29,8 +30,15 @@ public class PersonController extends HttpServlet{
 			poersons.add(cac.ConvertToPerson(objs.get(i)));
 		}
 		
-		req.setAttribute("poersons", poersons);
+		objs = db.getObjectData(DBAccessJDBCSQLite.TableName.permission);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		for (int i = 0; i < objs.size(); i++) {
+			permissions.add(cac.ConvertToRight(objs.get(i)));
+		}
+		
+		req.setAttribute("poersons", poersons);
+		req.setAttribute("permissions", permissions);
+		
+		getServletContext().getRequestDispatcher("/Personen.jsp").forward(req, resp);
 	}
 }

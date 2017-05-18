@@ -55,6 +55,7 @@
 		<%= request.getParameter("studygroups")  %>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
+		<input type="hidden" name="stid" value="${student.getStid()}">
         <select name="peid">
 		<c:forEach items="${persons}" var="persons">
 			<c:choose>

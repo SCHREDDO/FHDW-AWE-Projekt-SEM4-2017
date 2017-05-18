@@ -24,10 +24,10 @@ public class StudentCreateController extends HttpServlet{
 		Student student = new Student();
 		StudyGroup studygroup = new StudyGroup();
 		
-		studygroup.setSgid(Integer.parseInt(req.getParameter("")));
+		studygroup.setSgid(Integer.parseInt(req.getParameter("sgid")));
 		
-		student.setPeid(Integer.parseInt(req.getParameter("")));
-		student.setMatrikelnumber(Integer.parseInt(req.getParameter("")));
+		student.setPeid(Integer.parseInt(req.getParameter("peid")));
+		student.setMatrikelnumber(Integer.parseInt(req.getParameter("matrikelnumber")));
 		student.setGroup(studygroup);
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
@@ -42,6 +42,6 @@ public class StudentCreateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}	
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/CreateStudent.jsp").forward(req, resp);
 	}
 }

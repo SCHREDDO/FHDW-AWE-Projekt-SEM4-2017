@@ -32,6 +32,6 @@ public class StudyGroupController extends HttpServlet
 		
 		req.setAttribute("studygroups", studygroups);
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/Kurs.jsp").forward(req, resp);
 	}
 }

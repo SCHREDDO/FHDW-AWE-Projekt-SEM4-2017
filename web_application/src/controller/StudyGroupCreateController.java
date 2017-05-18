@@ -23,7 +23,7 @@ public class StudyGroupCreateController extends HttpServlet{
 		
 		StudyGroup studygroup = new StudyGroup();
 		
-		studygroup.setShortName(req.getParameter(""));
+		studygroup.setShortName(req.getParameter("shortname"));
 		
 		List<Object[]> temp = new ArrayList<Object[]>();
 		temp.add(cac.ConvertToStudyGroup(studygroup));
@@ -37,6 +37,6 @@ public class StudyGroupCreateController extends HttpServlet{
 			req.setAttribute("info", "");
 		}
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/CreateKurs.jsp").forward(req, resp);
 	}
 }

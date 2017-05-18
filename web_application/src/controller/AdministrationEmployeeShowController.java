@@ -30,6 +30,6 @@ public class AdministrationEmployeeShowController extends HttpServlet{
 		
 		req.setAttribute("administrationemployee", administrationemployee);
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/ShowVervaltung.jsp").forward(req, resp);
 	}
 }

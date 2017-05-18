@@ -47,6 +47,6 @@ public class StudentEditController extends HttpServlet{
 		req.setAttribute("persons", persons);
 
 		
-		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/EditStudenten.jsp").forward(req, resp);
 	}
 }

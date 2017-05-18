@@ -39,6 +39,6 @@ public class AdministrationEmployeeController  extends HttpServlet
 		req.setAttribute("administrationemployees", administrationemployees);
 		req.setAttribute("persons", persons);
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/Vervaltung.jsp").forward(req, resp);
 	}
 }

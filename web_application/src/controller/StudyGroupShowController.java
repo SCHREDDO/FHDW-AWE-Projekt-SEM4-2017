@@ -24,7 +24,7 @@ public class StudyGroupShowController  extends HttpServlet{
 		StudyGroup studygroup = new StudyGroup();
 		List<Student> students = new ArrayList<Student>();
 		
-		List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.study_group, Integer.parseInt(req.getParameter("")));
+		List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.study_group, Integer.parseInt(req.getParameter("sgid")));
 		
 		studygroup = cac.ConvertToStudyGroup(objs.get(0));
 		
@@ -37,6 +37,6 @@ public class StudyGroupShowController  extends HttpServlet{
 		req.setAttribute("studygroup", studygroup);
 		req.setAttribute("students", students);
 		
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/ShowKurs.jsp").forward(req, resp);
 	}
 }
