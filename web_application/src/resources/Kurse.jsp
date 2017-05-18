@@ -60,7 +60,7 @@
 </nav>
 
 <c:choose>
-	<c:when test="${rpid == '1'}">
+	<c:when test="${rpid == 2}">
 <form action="http://localhost:8080/Kurse/Create" method="get">
     <fieldset>
         <legend></legend>

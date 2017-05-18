@@ -14,7 +14,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 		administration_employee,
 		grade,
 		lecturer,
-		modul,
+		module,
 		modul_lecturer,
 		module_lecturer_study_group,
 		person,
@@ -358,7 +358,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean insertIntoModul(List<Object[]> data)
 	{
-		String sql = "INSERT INTO modul (name, short, creditpoints) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO module (name, short, creditpoints) VALUES (?, ?, ?)";
 		
 		PreparedStatement statement;
 			
@@ -631,7 +631,7 @@ public class DBAccessJDBCSQLite extends DBAccessJDBC{
 
 	public Boolean updateModul(List<Object[]> data)
 	{
-		String sql = "UPDATE modul SET name = ?, short = ?, creditpoints = ? WHERE moid = ?";
+		String sql = "UPDATE module SET name = ?, short = ?, creditpoints = ? WHERE moid = ?";
 
 		PreparedStatement statement;
 			

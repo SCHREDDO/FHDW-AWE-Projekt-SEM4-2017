@@ -28,7 +28,7 @@ public class ModulShowController extends HttpServlet{
 			
 			Modul modul = new Modul();
 			
-			List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.modul, Integer.parseInt(req.getParameter("")));
+			List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.module, Integer.parseInt(req.getParameter("")));
 			
 			modul = cac.ConvertToModul(objs.get(0));
 			

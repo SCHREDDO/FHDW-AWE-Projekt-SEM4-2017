@@ -1,0 +1,109 @@
+CREATE TABLE permission(
+	pid INTEGER PRIMARY KEY AUTOINCREMENT, 
+	name TEXT
+);
+
+CREATE TABLE person(
+	peid INTEGER PRIMARY KEY AUTOINCREMENT,
+	pid INTEGER,
+	firstname TEXT,
+	larstname TEXT,
+	short TEXT,
+	password TEXT,
+	e_mail TEXT,
+	address TEXT,
+	phone_number INTEGER,
+	FOREIGN KEY(pid) REFERENCES permission(pid)
+);
+
+CREATE TABLE student(
+	stid INTEGER PRIMARY KEY AUTOINCREMENT,
+	peid INTEGER,
+	sgid INTEGER,
+	matrikelnumber INTEGER,
+	FOREIGN KEY(peid) REFERENCES person(peid),
+	FOREIGN KEY(sgid) REFERENCES study_group(sgid)
+);
+
+CREATE TABLE lecturer(
+	leid INTEGER PRIMARY KEY AUTOINCREMENT,
+	peid INTEGER,
+	is_honouree_lecturer INTEGER,
+	FOREIGN KEY(peid) REFERENCES person(peid)
+);
+
+CREATE TABLE administration_employee(
+	aeid INTEGER PRIMARY KEY AUTOINCREMENT,
+	peid INTEGER,
+	task_area TEXT,
+	FOREIGN KEY(peid) REFERENCES person(peid)
+);
+
+CREATE TABLE module(
+	moid INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT,
+	short TEXT,
+	creditpoints INTEGER
+);
+
+CREATE TABLE study_group(
+	sgid INTEGER PRIMARY KEY AUTOINCREMENT,
+	short TEXT
+);
+
+CREATE TABLE grade(
+	grid INTEGER PRIMARY KEY AUTOINCREMENT,
+	stid INTEGER,
+	mlid INTEGER,
+	gradenumber INTEGER,
+	gradepercent INTEGER,
+	FOREIGN KEY(stid) REFERENCES student(stid),
+	FOREIGN KEY(mlid) REFERENCES module_lecturer(mlid)
+);
+
+CREATE TABLE module_lecturer(
+	mlid INTEGER PRIMARY KEY AUTOINCREMENT,
+	moid INTEGER,
+	leid INTEGER,
+	FOREIGN KEY(moid) REFERENCES module(moid),
+	FOREIGN KEY(leid) REFERENCES lecturer(leid)
+);
+
+CREATE TABLE module_lecturer_study_group(
+	msid INTEGER PRIMARY KEY AUTOINCREMENT,
+	sgid INTEGER,
+	moid INTEGER,
+	leid INTEGER,
+	FOREIGN KEY(sgid) REFERENCES study_group(sgid),
+	FOREIGN KEY(moid) REFERENCES module(moid),
+	FOREIGN KEY(leid) REFERENCES lecturer(leid)
+);
+
+
+INSERT INTO permission (name) VALUES ("Admin");
+INSERT INTO permission (name) VALUES ("User");
+
+
+INSERT INTO study_group (short) VALUES ("pfba415b");
+INSERT INTO study_group (short) VALUES ("pfba415a");
+INSERT INTO study_group (short) VALUES ("pfbw415a");
+
+INSERT INTO person (pid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (2, "Testi", "Testa", "te", "abc", "a@b.de", "adress", "123");
+INSERT INTO person (pid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (1, "Hans", "Haso", "pfba415bha", "abc", "ha@b.de", "Weg 9", "674845");
+INSERT INTO person (pid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (1, "Diter", "Beiner", "pfba415bbe", "abc", "di@b.de", "haus 8", "78465");
+INSERT INTO person (pid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (1, "Otto", "W", "tt", "pfbw415aw", "w@b.de", "Strasse 78", "143059786");
+INSERT INTO person (pid, firstname, larstname, short, password, e_mail, address, phone_number) VALUES (1, "Ralf", "Klein", "pfbw415akl", "abc", "ral@b.de", "Nummer 6", "4144513");
+
+
+INSERT INTO administration_employee (peid, task_area) VALUES (1, "Admin");
+INSERT INTO administration_employee (peid, task_area) VALUES (2, "Schreiber");
+
+INSERT INTO student (peid, sgid, matrikelnumber) VALUES (3, 1, 6347366);
+INSERT INTO student (peid, sgid, matrikelnumber) VALUES (4, 3, 2546245);
+
+INSERT INTO lecturer (peid, is_honouree_lecturer) VALUES (5, 1);
+INSERT INTO lecturer (peid, is_honouree_lecturer) VALUES (1, 0);
+
+INSERT INTO module (name, short, creditpoints) VALUES ("Mathe", "mat", 5);
+INSERT INTO module (name, short, creditpoints) VALUES ("Englisch", "eng", 5);
+INSERT INTO module (name, short, creditpoints) VALUES ("Sport", "spo", 5);

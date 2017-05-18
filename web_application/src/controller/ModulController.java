@@ -29,7 +29,7 @@ public class ModulController extends HttpServlet
 			
 			List<Modul> moduls = new ArrayList<Modul>();
 			
-			List<Object[]> objs = db.getObjectData(DBAccessJDBCSQLite.TableName.modul);
+			List<Object[]> objs = db.getObjectData(DBAccessJDBCSQLite.TableName.module);
 			
 			for (int i = 0; i < objs.size(); i++) {
 				moduls.add(cac.ConvertToModul(objs.get(i)));
