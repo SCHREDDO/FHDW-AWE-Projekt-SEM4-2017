@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import helper.*;
 import models.*;
 
-public class ModulController extends HttpServlet
-{
-	
+public class LecturerCreateController extends HttpServlet{
+
 }
