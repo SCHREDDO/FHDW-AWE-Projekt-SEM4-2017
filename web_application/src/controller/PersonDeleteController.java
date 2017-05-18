@@ -13,15 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import helper.*;
 import models.*;
 
-public class AdministrationEmployeeDeleteController extends HttpServlet{
+public class PersonDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
-		
-		db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.administration_employee);
+
+		if(db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.person))
+		{
+			req.setAttribute("info", "");
+		}
+		else
+		{
+			req.setAttribute("info", "");
+		}	
 		
 		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
 	}

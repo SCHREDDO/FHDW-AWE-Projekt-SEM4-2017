@@ -14,5 +14,15 @@ import helper.*;
 import models.*;
 
 public class LecturerDeleteController extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
+		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
+		ConvertObjectAndClass cac = new ConvertObjectAndClass();
+		db.connectTODB();
+		
+		db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.lecturer);
+		
+		getServletContext().getRequestDispatcher("/deleteDozenten.jsp").forward(req, resp);
+	}
 }

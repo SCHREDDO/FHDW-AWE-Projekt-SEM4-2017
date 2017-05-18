@@ -18,13 +18,25 @@ public class StudentController extends HttpServlet
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		
-		
-		System.out.println("Test");
-		
+
 		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
+		
+		List<Person> persons = new ArrayList<Person>();
+		List<StudyGroup> studygroups = new ArrayList<StudyGroup>();
+		
+		List<Object[]> temp = new ArrayList<Object[]>();
+		
+		temp = db.getObjectData(DBAccessJDBCSQLite.TableName.study_group);
+		for (int i = 0; i < temp.size(); i++) {
+			studygroups.add(cac.ConvertToStudyGroup(temp.get(i)));
+		}
+		
+		temp = db.getObjectData(DBAccessJDBCSQLite.TableName.person);
+		for (int i = 0; i < temp.size(); i++) {
+			persons.add(cac.ConvertToPerson(temp.get(i)));
+		}
 		
 		List<Student> students = new ArrayList<Student>();
 		
@@ -35,12 +47,9 @@ public class StudentController extends HttpServlet
 		}
 		
 		req.setAttribute("students", students);
+		req.setAttribute("studygroups", studygroups);
+		req.setAttribute("persons", persons);
 		
-		resp.getWriter().write("Hello World");
-		//System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
-		//req.getRequestDispatcher("/helloWorld.jsp");
 		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
-		
-		//System.out.println(req.getParameter("name"));
 	}
 }

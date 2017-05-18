@@ -25,11 +25,47 @@ public class Index {
 		WebAppContext contect = new WebAppContext(rootURLString, "/");
 		contect.addServlet(LoginController.class, "/Index");
 		contect.addServlet(Startseite.class, "/Startseite");
+		
 		contect.addServlet(LecturerController.class, "/Dozenten");
-		contect.addServlet(StudentController.class, "/Studenten");
+		contect.addServlet(LecturerCreateController.class, "/Dozenten/Create");
+		contect.addServlet(LecturerEditController.class, "/Dozenten/Edit");
+		contect.addServlet(LecturerUpdateController.class, "/Dozenten/Update");
+		contect.addServlet(LecturerDeleteController.class, "/Dozenten/Delete");
+		contect.addServlet(LecturerShowController.class, "/Dozenten/Show");
+		
+		contect.addServlet(StudentController.class, "/Studenten/");
+		contect.addServlet(StudentCreateController.class, "/Studenten/Create");
+		contect.addServlet(StudentEditController.class, "/Studenten/Edit");
+		contect.addServlet(StudentUpdateController.class, "/Studenten/Update");
+		contect.addServlet(StudentDeleteController.class, "/Studenten/Delete");
+		contect.addServlet(StudentShowController.class, "/Studenten/Show");
+		
+		contect.addServlet(AdministrationEmployeeController.class, "/Studenten");
+		contect.addServlet(AdministrationEmployeeCreateController.class, "/Studenten/Create");
+		contect.addServlet(AdministrationEmployeeEditController.class, "/Studenten/Edit");
+		contect.addServlet(AdministrationEmployeeUpdateController.class, "/Studenten/Update");
+		contect.addServlet(AdministrationEmployeeDeleteController.class, "/Studenten/Delete");
+		contect.addServlet(AdministrationEmployeeShowController.class, "/Studenten/Show");
+		
+		
+		contect.addServlet(PersonController.class, "/Person");
+		contect.addServlet(PersonCreateController.class, "/Person/Create");
+		contect.addServlet(PersonEditController.class, "/Person/Edit");
+		contect.addServlet(PersonUpdateController.class, "/Person/Update");
+		contect.addServlet(PersonDeleteController.class, "/Person/Delete");
+		contect.addServlet(PersonShowController.class, "/Person/Show");
+		
+		contect.addServlet(ModulController.class, "/Modul");
+		contect.addServlet(ModulCreateController.class, "/Modul/Create");
+		contect.addServlet(ModulShowController.class, "/Modul/Show");
+		
+		contect.addServlet(StudyGroupController.class, "/Kurse");
+		contect.addServlet(StudyGroupCreateController.class, "/Kurse/Create");
+		contect.addServlet(StudyGroupShowController.class, "/Kurse/Show");
+		
 		contect.addServlet(Kontakt.class, "/Kontakt");
 		//contect.addServlet(editDozenten.class, "/editDozenten");
-		contect.addServlet(deleteDozenten.class, "/deleteDozenten");
+		//contect.addServlet(deleteDozenten.class, "/deleteDozenten");
 		//contect.addServlet(editStudent.class, "/editStudent");
 		//contect.addServlet(deleteStudent.class, "/deleteStudent");
 		//contect.addServlet(newStudent.class, "/newStudent");

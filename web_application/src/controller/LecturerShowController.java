@@ -14,5 +14,21 @@ import helper.*;
 import models.*;
 
 public class LecturerShowController extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
+		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
+		ConvertObjectAndClass cac = new ConvertObjectAndClass();
+		db.connectTODB();
+		
+		Lecturer lecturer = new Lecturer();
+		List<Object[]> temp = new ArrayList<Object[]>();
+		
+		temp = db.getObjectDataPersonLecturer(Integer.parseInt(req.getParameter("")));
+		lecturer = cac.ConvertToLecturer(temp.get(0));
+		
+		req.setAttribute("lecturer", lecturer);
+		
+		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+	}
 }

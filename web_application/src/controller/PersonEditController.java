@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import helper.*;
 import models.*;
 
-public class AdministrationEmployeeDeleteController extends HttpServlet{
+public class PersonEditController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
@@ -21,7 +21,23 @@ public class AdministrationEmployeeDeleteController extends HttpServlet{
 		ConvertObjectAndClass cac = new ConvertObjectAndClass();
 		db.connectTODB();
 		
-		db.delete(Integer.parseInt(req.getParameter("")), DBAccessJDBCSQLite.TableName.administration_employee);
+		Person person = new Person();
+		List<Permission> permission = new ArrayList<Permission>();
+		
+		List<Object[]> temp = new ArrayList<Object[]>();
+		temp = db.getObjectData(DBAccessJDBCSQLite.TableName.permission);
+		
+		for (int i = 0; i < temp.size(); i++) {
+			permission.add(cac.ConvertToRight(temp.get(i)));
+		}
+		
+		temp = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.person, Integer.parseInt(req.getParameter("")));
+		
+		person = cac.ConvertToPerson(temp.get(0));
+		
+		req.setAttribute("permission", permission);
+		req.setAttribute("person", person);
+		
 		
 		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
 	}

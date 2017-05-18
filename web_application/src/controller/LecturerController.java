@@ -24,18 +24,22 @@ public class LecturerController extends HttpServlet
 		db.connectTODB();
 		
 		List<Lecturer> lecturers = new ArrayList<Lecturer>();
+		List<Person> persons = new ArrayList<Person>();
 		
 		List<Object[]> objs = db.getObjectDataPersonLecturer();
 		
 		for (int i = 0; i < objs.size(); i++) {
 			lecturers.add(cac.ConvertToLecturer(objs.get(i)));
 		}
-		req.setAttribute("lecturers", lecturers);
 		
-		resp.getWriter().write("Hello World");
-//		System.out.println(req.getRequestDispatcher("/helloWorld.jsp"));
-		//req.getRequestDispatcher("/helloWorld.jsp");
-		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);	
-
+		objs = db.getObjectData(DBAccessJDBCSQLite.TableName.person);
+		for (int i = 0; i < objs.size(); i++) {
+			persons.add(cac.ConvertToPerson(objs.get(i)));
+		}
+		
+		req.setAttribute("lecturers", lecturers);
+		req.setAttribute("persons", persons);
+		
+		getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
 	}
 }

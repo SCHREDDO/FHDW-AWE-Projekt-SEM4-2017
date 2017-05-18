@@ -14,5 +14,38 @@ import helper.*;
 import models.*;
 
 public class LecturerUpdateController extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
+		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
+		ConvertObjectAndClass cac = new ConvertObjectAndClass();
+		db.connectTODB();
+		
+		Lecturer lecturer = new Lecturer();
+		
+		lecturer.setPeid(Integer.parseInt(req.getParameter("")));
+		lecturer.setLeid(Integer.parseInt(req.getParameter("")));
+		if (req.getParameter("") == "")
+		{
+			lecturer.setIs_honouree_lecturer(true);
+		}
+		else 
+		{
+			lecturer.setIs_honouree_lecturer(false);
+		}
+		
+		List<Object[]> temp = new ArrayList<Object[]>();
+		temp.add(cac.ConvertToLecturero(lecturer));
+		
+		if(db.updateLecturer(temp))
+		{
+			req.setAttribute("info", "");
+		}
+		else
+		{
+			req.setAttribute("info", "");
+		}
+		
+		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
+	}
 }
