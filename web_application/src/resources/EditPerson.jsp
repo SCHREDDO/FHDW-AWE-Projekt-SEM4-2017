@@ -51,15 +51,34 @@
 </nav>
 <form action="EditStudenten" method="get">
     <fieldset>
+		<%= request.getParameter("permission")  %>
+		<%= request.getParameter("person")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
+        <label for="fistname">First Name</label>
+        <input type="text" name="firstname" value="{person.getFirstname()}"/> <br/>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" value="{person.getLastname()}"/> <br/>
+		<label for="lastname">Kurzel</label>
+        <input type="text" name="shortname" value="{person.getShortname()}"/> <br/>
+		 <label for="email">Password</label>
+        <input type="text" name="password" value="{person.getPassword()}"/> <br/>
         <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <input type="text" name="e_mail" value="{person.getE_mail()}"/> <br/>
+		<label for="email">Addresse</label>
+        <input type="text" name="address" value="{person.getAddress()}"/> <br/>
+		<label for="email">Telephon</label>
+        <input type="text" name="phone_number " value="{person.getPhone_number()}"/> <br/>
+        <select name="pid">
+		c:forEach items="${permission}" var="permission">
+			<c:choose>
+				<c:when test="${permission.getRiid() == person.getRight().getRiid()}">
+					<option value="${permission.getRiid()}" selected="selected">${permission.getName()}</</option>
+				</c:when>    
+				<c:otherwise>
+					<option value="${permission.getRiid()}">${permission.getName()}</</option>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
         </select>
         <input type="submit" value="submit">
     </fieldset>

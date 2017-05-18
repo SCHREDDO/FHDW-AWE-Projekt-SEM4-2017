@@ -25,7 +25,7 @@ public class LecturerUpdateController extends HttpServlet{
 		
 		lecturer.setPeid(Integer.parseInt(req.getParameter("")));
 		lecturer.setLeid(Integer.parseInt(req.getParameter("")));
-		if (req.getParameter("") == "")
+		if (req.getParameter("") == "1")
 		{
 			lecturer.setIs_honouree_lecturer(true);
 		}

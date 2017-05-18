@@ -51,15 +51,24 @@
 </nav>
 <form action="EditDozent" method="get">
     <fieldset>
+		<%= request.getParameter("lecturer")  %>
+		<%= request.getParameter("persons")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <select name="peid">
+		<c:forEach items="${persons}" var="persons">
+			<c:choose>
+				<c:when test="${persons.getPeid() == lecturer.getPeid()}">
+					<option value="${persons.getPeid()}" selected="selected">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+				</c:when>    
+				<c:otherwise>
+					<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+        </select>
+        <select name="is_honouree_lecturer">
+            <option value="1">Ja</option>
+			<option value="0">Nein</option>
         </select>
         <input type="submit" value="submit">
     </fieldset>

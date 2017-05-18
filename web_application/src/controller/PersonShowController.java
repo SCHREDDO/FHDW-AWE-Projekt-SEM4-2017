@@ -34,7 +34,7 @@ public class PersonShowController extends HttpServlet{
 		temp = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.permission, person.getRight().getRiid());
 		permission = cac.ConvertToRight(temp.get(0));
 		
-		req.setAttribute("", person);
+		req.setAttribute("person", person);
 		
 		getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
 	}

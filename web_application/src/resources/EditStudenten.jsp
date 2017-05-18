@@ -51,16 +51,36 @@
 </nav>
 <form action="EditStudenten" method="get">
     <fieldset>
+        <%= request.getParameter("student")  %>
+		<%= request.getParameter("studygroups")  %>
+		<%= request.getParameter("persons")  %>
         <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
+        <select name="peid">
+		<c:forEach items="${persons}" var="persons">
+			<c:choose>
+				<c:when test="${persons.getPeid() == student.getPeid()}">
+					<option value="${persons.getPeid()}" selected="selected">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+				</c:when>    
+				<c:otherwise>
+					<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
         </select>
+		<select name="peid">
+		<c:forEach items="${studygroups}" var="persons">
+			<c:choose>
+				<c:when test="${studygroups.getSgid() == student.getGoup().getSgid()}">
+					<option value="${studygroups.getSgid()}" selected="selected">${studygroups.getShortName()}</</option>
+				</c:when>    
+				<c:otherwise>
+					<option value="${studygroups.getSgid()}">${studygroups.getShortName()}</</option>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+        </select>
+        <label for="task_area">Matrikelnumber</label>
+        <input type="text" name="matrikelnumber"  value="{student.getMatrikelnumber()}"/> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>
