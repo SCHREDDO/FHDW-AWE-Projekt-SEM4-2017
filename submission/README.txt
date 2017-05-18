@@ -1,10 +1,9 @@
-web_application.jar: die Application
-/web_application: Projekt der Application
+web_application.jar: die application
 database: die SQLite Datenbank
 SQLScript.txt: verwendetes Scrip zur erstellung
 *.png: Screenshots der laufenden Anwendung
 
-- Die Datei database in den Ordner /SQLite plaziren.(linux: root path/homeverzeichnis; Windows :\SQLite)
+- Die Datei database in den Ordner /SQLite plaziren.(root path/homeverzeichnis)
 - web_application.jar Starten
 - mit einen Webbrowser die Seite http://localhost:8080/Startseite ansteuern.
 
@@ -16,5 +15,7 @@ Password:abc
 Normaler User Account
 E-mail:ral@b.de
 Password:abc
+
+Hinweiß: Bei den Ansichten kann man auf die ID Klicken die dan zu weitern Information führen.
 
 GitHub Link: https://github.com/SCHREDDO/FHDW-AWE-Projekt-SEM4-2017
