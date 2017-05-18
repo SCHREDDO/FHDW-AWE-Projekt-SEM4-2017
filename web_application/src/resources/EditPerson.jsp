@@ -49,7 +49,7 @@
 
     </div>
 </nav>
-<form action="EditStudenten" method="get">
+<form action="http://localhost:8080/Personen/Update" method="get">
     <fieldset>
 		<%= request.getParameter("permission")  %>
 		<%= request.getParameter("person")  %>

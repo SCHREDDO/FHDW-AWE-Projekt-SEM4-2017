@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.beans.util.Cache;
 
@@ -19,32 +20,41 @@ public class StudentUpdateController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
-		ConvertObjectAndClass cac = new ConvertObjectAndClass();
-		db.connectTODB();
-		
-		Student student = new Student();
-		StudyGroup studygroup = new StudyGroup();
-		
-		studygroup.setSgid(Integer.parseInt(req.getParameter("sgid")));
-		
-		student.setPeid(Integer.parseInt(req.getParameter("peid")));
-		student.setStid(Integer.parseInt(req.getParameter("stid")));
-		student.setMatrikelnumber(Integer.parseInt(req.getParameter("matrikelnumber")));
-		student.setGroup(studygroup);
-		
-		List<Object[]> temp = new ArrayList<Object[]>();
-		temp.add(cac.ConvertToStudento(student));
-		
-		if(db.updateStudent(temp))
+		HttpSession session = req.getSession(true);
+		User user = (User) session.getAttribute("currentSessionUser");
+		if (user != null)
 		{
-			req.setAttribute("info", "");
+			DBAccessJDBCSQLite db = new DBAccessJDBCSQLite();
+			ConvertObjectAndClass cac = new ConvertObjectAndClass();
+			db.connectTODB();
+			
+			Student student = new Student();
+			StudyGroup studygroup = new StudyGroup();
+			
+			studygroup.setSgid(Integer.parseInt(req.getParameter("sgid")));
+			
+			student.setPeid(Integer.parseInt(req.getParameter("peid")));
+			student.setStid(Integer.parseInt(req.getParameter("stid")));
+			student.setMatrikelnumber(Integer.parseInt(req.getParameter("matrikelnumber")));
+			student.setGroup(studygroup);
+			
+			List<Object[]> temp = new ArrayList<Object[]>();
+			temp.add(cac.ConvertToStudento(student));
+			
+			if(db.updateStudent(temp))
+			{
+				req.setAttribute("info", "");
+			}
+			else
+			{
+				req.setAttribute("info", "");
+			}	
+			
+			getServletContext().getRequestDispatcher("/UpdateStudenten.jsp").forward(req, resp);
 		}
-		else
+		else 
 		{
-			req.setAttribute("info", "");
-		}	
-		
-		getServletContext().getRequestDispatcher("/UpdateStudenten.jsp").forward(req, resp);
+			getServletContext().getRequestDispatcher("/Login.jsp").forward(req, resp);
+		}
 	}
 }

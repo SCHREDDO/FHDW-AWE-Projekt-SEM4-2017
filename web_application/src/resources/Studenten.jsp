@@ -58,19 +58,19 @@
 
     </div>
 </nav>
-<form action="createStudent.jsp" method="get">
+<form action="http://localhost:8080/Studenten/Create" method="get">
     <fieldset>
 		<%= request.getParameter("studygroups")  %>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
         <select name="peid">
 		<c:forEach items="${persons}" var="persons">
-			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</</option>
+			<option value="${persons.getPeid()}">${persons.getFirstname()} ${persons.getLarstname()}</option>
 		</c:forEach>
         </select>
 		<select name="sgid">
-		<c:forEach items="${studygroups}" var="persons">
-					<option value="${studygroups.getSgid()}">${studygroups.getShortName()}</</option>
+		<c:forEach items="${studygroups}" var="studygroups">
+					<option value="${studygroups.getSgid()}">${studygroups.getShortName()}</option>
 		</c:forEach>
         </select>
         <label for="matrikelnumber">Matrikelnumber</label>
@@ -103,8 +103,8 @@
 	        <td>${students.getFirstname()} ${students.getLarstname()}</td>
 	        <td>${students.getShortname()}</td>
 	        <td>${students.getMatrikelnumber()}</td>
-			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<!--<td>Buttons Edit / Delete</td>-->
+			<td><a href="http://localhost:8080/Studenten/Edit?stid=${students.getStid()}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="http://localhost:8080/Studenten/Delete?stid=${students.getStid()}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
     	</tr>
 	</c:forEach>
     

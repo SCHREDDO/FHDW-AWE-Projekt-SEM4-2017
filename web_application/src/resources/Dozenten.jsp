@@ -49,7 +49,7 @@
 
     </div>
 </nav>
-<form action="createDozent" method="get">
+<form action="http://localhost:8080/Create" method="get">
     <fieldset>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
@@ -76,6 +76,10 @@
         <th class="col-md-3 col-xs-3">Name / Nachname</th>
         <th class="col-md-3 col-xs-3">Kürzel</th>
         <th class="col-md-3 col-xs-3">Hunoradotzent</th>
+		<th class="col-md-3 col-xs-3"></th>
+		<th class="col-md-3 col-xs-3"></th>
+		<th class="col-md-3 col-xs-3"></th>
+		
     </tr>
     <tr class="warning no-result">
         <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -88,12 +92,11 @@
     <c:forEach items="${lecturers}" var="lecturers">
     	<tr>
     		<th scope="row">${lecturers.getLeid()}</th>
-    		<td>${lecturers.getFirstname()} ${students.getLarstname()}</td>   
-	        <td>${lecturers.getFirstname()} ${students.getLarstname()}</td>
+    		<td>${lecturers.getFirstname()} ${students.getLarstname()}</td> 
 	        <td>${lecturers.getShortname()}</td>
 	        <td>${lecturers.getIs_honouree_lecturer()}</td>
-	        <td><a href="http://localhost:8080/editDozenten" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-    		<td><a href="http://localhost:8080/deleteDozenten?delete=${lecturers.leid}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
+	        <td><a href="http://localhost:8080/Dozenten/Edit?leid=${lecturers.leid}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+    		<td><a href="http://localhost:8080/Dozenten/Delete?leid=${lecturers.leid}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
     	
     	</tr>
 	</c:forEach>

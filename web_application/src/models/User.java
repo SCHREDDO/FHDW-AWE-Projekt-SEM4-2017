@@ -7,7 +7,8 @@ public class User {
 	
 	public User()
 	{
-		
+		this.shortname = "";
+		this.pid = 0;
 	}
 
 	public String getShortname() {

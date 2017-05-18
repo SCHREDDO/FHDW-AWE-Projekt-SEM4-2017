@@ -34,19 +34,9 @@ public class Startseite extends HttpServlet {
 				session.setAttribute("currentSessionUser", user);
 				resp.sendRedirect("/Startseite.jsp");
 			}
-			else resp.getWriter().write("Keine Berechtigung");
-			
-			if(req.getParameter("name") != null){
-				if(req.getParameter("name").equals("test@mail.de") && req.getParameter("pass").equals("test"))
-				{
-					System.out.println("login erfolgreich");
-					req.setAttribute("name", "Peter");
-					//getServletContext().getRequestDispatcher("/NewFile.jsp").forward(req, resp);
-					resp.sendRedirect("/Startseite.jsp");
-					
-					Index.setGoodLogin(true);
-				}
+			else 
+			{
+				getServletContext().getRequestDispatcher("/Login.jsp").forward(req, resp);
 			}
-			System.out.println(req.getParameter("name"));
-		}
 	}
+}

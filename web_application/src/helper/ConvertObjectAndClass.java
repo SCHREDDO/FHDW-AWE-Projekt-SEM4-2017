@@ -130,14 +130,14 @@ public class ConvertObjectAndClass {
 		Person temp = new Person();
 		
 		temp.setPeid((int)obj[0]);
-		temp.setFirstname((String)obj[1]);
-		temp.setLarstname((String)obj[2]);
-		temp.setShortname((String)obj[3]);
+		temp.setFirstname((String)obj[2]);
+		temp.setLarstname((String)obj[3]);
+		temp.setShortname((String)obj[4]);
 		Permission p = new Permission();
-		p.setRiid((int)obj[4]);
+		p.setRiid((int)obj[1]);
 		temp.setRight(p);
-		temp.setE_mail((String)obj[5]);
-		temp.setPassword((String)obj[6]);
+		temp.setPassword((String)obj[5]);
+		temp.setE_mail((String)obj[6]);
 		temp.setAddreass((String)obj[7]);
 		temp.setPhoneNumber((int)obj[8]);
 		

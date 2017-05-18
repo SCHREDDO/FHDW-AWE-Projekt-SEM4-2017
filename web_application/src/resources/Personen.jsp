@@ -58,7 +58,7 @@
 
     </div>
 </nav>
-<form action="createPerson.jsp" method="get">
+<form action="http://localhost:8080/Personen/Create" method="get">
     <fieldset>
         <%= request.getParameter("permissions")  %>
         <legend></legend>
@@ -77,7 +77,7 @@
 		<label for="phone_number">Telephon</label>
         <input type="text" name="phone_number"/> <br/>
         <select name="pid">
-		c:forEach items="${permissions}" var="permissions">
+		<c:forEach items="${permissions}" var="permissions">
 			<option value="${permissions.getRiid()}" >${permissions.getName()}</</option>
 		</c:forEach>
         </select>
@@ -111,8 +111,8 @@
 	        <td>${poersons.getShortname()}</td>
 	        <td>${poersons.getAdress()}</td>
 			<td>${poersons.getE_mail()}</td>
-			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<!--<td>Buttons Edit / Delete</td>-->
+			<td><a href="http://localhost:8080/Personen/Edit?peid=${poersons.getStid()}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="http://localhost:8080/Personen/Delete?peid=${poersons.getStid()}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
     	</tr>
 	</c:forEach>
     

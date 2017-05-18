@@ -49,7 +49,7 @@
 
     </div>
 </nav>
-<form action="createModule.jsp" method="get">
+<form action="http://localhost:8080/Module/Create" method="get">
     <fieldset>
         <legend></legend>
         <label for="name">Name</label>
@@ -86,8 +86,8 @@
 	        <td>${moduls.getName()}</td>
 	        <td>${moduls.getShortname()}</td>
 	        <td>${moduls.getCreditpoints()}</td>
-			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<!--<td>Buttons Edit / Delete</td>-->
+			<td><a href="http://localhost:8080/Module/Edit?moid=${moduls.getMoid()}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="http://localhost:8080/Module/Delete?moid=${moduls.getMoid()}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
     	</tr>
 	</c:forEach>
     

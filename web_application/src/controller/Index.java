@@ -27,41 +27,41 @@ public class Index {
 		contect.addServlet(Startseite.class, "/Startseite");
 		
 		contect.addServlet(LecturerController.class, "/Dozenten");
-		contect.addServlet(LecturerCreateController.class, "/Dozenten/Create");
-		contect.addServlet(LecturerEditController.class, "/Dozenten/Edit");
-		contect.addServlet(LecturerUpdateController.class, "/Dozenten/Update");
-		contect.addServlet(LecturerDeleteController.class, "/Dozenten/Delete");
-		contect.addServlet(LecturerShowController.class, "/Dozenten/Show");
+		contect.addServlet(LecturerCreateController.class, "/createDozent");
+		contect.addServlet(LecturerEditController.class, "/editDozenten");
+		contect.addServlet(LecturerUpdateController.class, "/updateDozenten/Update");
+		contect.addServlet(LecturerDeleteController.class, "/deleteDozenten");
+		contect.addServlet(LecturerShowController.class, "/showDozent");
 		
-		contect.addServlet(StudentController.class, "/Studenten.jsp");
-		contect.addServlet(StudentCreateController.class, "/Studenten/Create");
-		contect.addServlet(StudentEditController.class, "/Studenten/Edit");
-		contect.addServlet(StudentUpdateController.class, "/Studenten/Update");
-		contect.addServlet(StudentDeleteController.class, "/Studenten/Delete");
-		contect.addServlet(StudentShowController.class, "/Studenten/Show");
+		contect.addServlet(StudentController.class, "/Studenten");
+		contect.addServlet(StudentCreateController.class, "/createStudenten");
+		contect.addServlet(StudentEditController.class, "/editStudenten");
+		contect.addServlet(StudentUpdateController.class, "/updateStudenten/");
+		contect.addServlet(StudentDeleteController.class, "/deleteStudenten/");
+		contect.addServlet(StudentShowController.class, "/showStudenten/");
 		
 		contect.addServlet(AdministrationEmployeeController.class, "/Verwaltung");
-		contect.addServlet(AdministrationEmployeeCreateController.class, "/Verwaltung/Create");
-		contect.addServlet(AdministrationEmployeeEditController.class, "/Verwaltung/Edit");
-		contect.addServlet(AdministrationEmployeeUpdateController.class, "/Verwaltung/Update");
-		contect.addServlet(AdministrationEmployeeDeleteController.class, "/Verwaltung/Delete");
-		contect.addServlet(AdministrationEmployeeShowController.class, "/Verwaltung/Show");
+		contect.addServlet(AdministrationEmployeeCreateController.class, "/createVerwaltung");
+		contect.addServlet(AdministrationEmployeeEditController.class, "/editVerwaltung");
+		contect.addServlet(AdministrationEmployeeUpdateController.class, "/updateVerwaltung");
+		contect.addServlet(AdministrationEmployeeDeleteController.class, "/deleteVerwaltung");
+		contect.addServlet(AdministrationEmployeeShowController.class, "/showVerwaltung");
 		
 		
-		contect.addServlet(PersonController.class, "/Person");
-		contect.addServlet(PersonCreateController.class, "/Person/Create");
-		contect.addServlet(PersonEditController.class, "/Person/Edit");
-		contect.addServlet(PersonUpdateController.class, "/Person/Update");
-		contect.addServlet(PersonDeleteController.class, "/Person/Delete");
-		contect.addServlet(PersonShowController.class, "/Person/Show");
+		contect.addServlet(PersonController.class, "/Personen");
+		contect.addServlet(PersonCreateController.class, "/createPerson");
+		contect.addServlet(PersonEditController.class, "/editPerson");
+		contect.addServlet(PersonUpdateController.class, "/updatePerson");
+		contect.addServlet(PersonDeleteController.class, "/deletePerson");
+		contect.addServlet(PersonShowController.class, "/showPerson");
 		
 		contect.addServlet(ModulController.class, "/Modul");
-		contect.addServlet(ModulCreateController.class, "/Modul/Create");
-		contect.addServlet(ModulShowController.class, "/Modul/Show");
+		contect.addServlet(ModulCreateController.class, "/createModul");
+		contect.addServlet(ModulShowController.class, "/showModul");
 		
 		contect.addServlet(StudyGroupController.class, "/Kurse");
-		contect.addServlet(StudyGroupCreateController.class, "/Kurse/Create");
-		contect.addServlet(StudyGroupShowController.class, "/Kurse/Show");
+		contect.addServlet(StudyGroupCreateController.class, "/createKurse");
+		contect.addServlet(StudyGroupShowController.class, "/showKurse");
 		
 		contect.addServlet(Kontakt.class, "/Kontakt");
 		//contect.addServlet(editDozenten.class, "/editDozenten");

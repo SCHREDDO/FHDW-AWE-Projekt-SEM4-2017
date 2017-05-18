@@ -49,7 +49,7 @@
 
     </div>
 </nav>
-<form action="EditDozent" method="get">
+<form action="http://localhost:8080/Dozenten/Update" method="get">
     <fieldset>
 		<%= request.getParameter("lecturer")  %>
 		<%= request.getParameter("persons")  %>

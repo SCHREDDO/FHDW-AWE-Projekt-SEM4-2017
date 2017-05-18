@@ -58,7 +58,7 @@
 
     </div>
 </nav>
-<form action="createKurs.jsp" method="get">
+<form action="http://localhost:8080/Kurse/Create" method="get">
     <fieldset>
         <legend></legend>
         <label for="shortname">Kurzel</label>
@@ -88,8 +88,8 @@
     	<tr>
     		<th scope="row">${studygroups.getStid()}</th>      
 	        <td>${studygroups.getShortName()}</td>
-			<td><a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<!--<td>Buttons Edit / Delete</td>-->
+			<td><a href="http://localhost:8080/Kurse/Edit?sgid=${studygroups.getStid()}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="http://localhost:8080/Kurse/Delete?sgid=${studygroups.getStid()}" data-original-title="Delete this user" data-toggle="tooltip" type="button" class="confirm-delete btn mini red-stripe"><i class="glyphicon glyphicon-edit"></i></a></td>
     	</tr>
 	</c:forEach>
     

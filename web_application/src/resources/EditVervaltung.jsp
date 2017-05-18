@@ -49,9 +49,9 @@
 
     </div>
 </nav>
-<form action="EditStudenten" method="get">
+<form action="http://localhost:8080/Verwaltung/Update" method="get">
     <fieldset>
-       <%= request.getParameter("administrationemployee")  %>
+        <%= request.getParameter("administrationemployee")  %>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
 		<input type="hidden" name="aeid" value="administrationemployee.getAeid()">
