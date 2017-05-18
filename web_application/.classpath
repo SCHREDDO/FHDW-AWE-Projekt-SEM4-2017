@@ -19,6 +19,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/org.eclipse.jdt.core/3.8.2.v20130121/ebb04771ae21dec8682e4153e97404d9933a9c13/org.eclipse.jdt.core-3.8.2.v20130121.jar" sourcepath="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/org.eclipse.jdt.core/3.8.2.v20130121/add6b2dc7e55094f98db1c8b0decd91e2cbbd337/org.eclipse.jdt.core-3.8.2.v20130121-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.2.16.v20160414/e0accd393d4f2db45d39ebe14265301408b29fb6/jetty-util-9.2.16.v20160414.jar" sourcepath="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.2.16.v20160414/372ce087f3acfac9365a06a28243c40944cf77c5/jetty-util-9.2.16.v20160414-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.el/3.0.1-b08/8fa39d3901fc6ec8c0fff4ad4e48c26c4911c422/javax.el-3.0.1-b08.jar" sourcepath="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.el/3.0.1-b08/303fcd8c9ce98ccb708a20aaafb2ea1e8ef0b254/javax.el-3.0.1-b08-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/Desktop/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Admin/Desktop/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

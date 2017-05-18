@@ -43,6 +43,7 @@ public class PersonController extends HttpServlet{
 			
 			req.setAttribute("poersons", poersons);
 			req.setAttribute("permissions", permissions);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Personen.jsp").forward(req, resp);
 		}

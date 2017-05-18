@@ -49,6 +49,9 @@
 
     </div>
 </nav>
+
+<c:choose>
+	<c:when test="${rpid == '1'}">
 <form action="http://localhost:8080/Verwaltung/Create" method="get">
     <fieldset>
 		<%= request.getParameter("persons")  %>
@@ -59,10 +62,12 @@
 		</c:forEach>
         </select>
         <label for="task_area">Aufgabenbereich</label>
-        <input type="text" name="task_area"  value="{administrationemployee.getTask_area()}"/> <br/>
+        <input type="text" name="task_area"  value='${administrationemployee.getTask_area()}'/> <br/>
         <input type="submit" value="submit">
     </fieldset>
 </form>
+	</c:when>
+</c:choose>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -85,7 +90,7 @@
     <%= request.getParameter("administrationemployees")  %>
     <c:forEach items="${administrationemployees}" var="administrationemployees">
     	<tr>
-    		<th scope="row">${administrationemployees.getPeid()}</th>      
+    		<th scope="row"><a href="http://localhost:8080/Verwaltung/Show?aeid=${administrationemployees.getPeid()}">${administrationemployees.getPeid()}</a></th>      
 	        <td>${administrationemployees.getFirstname()} ${administrationemployees.getLarstname()}</td>
 	        <td>${administrationemployees.getShortname()}</td>
 	        <td>${administrationemployees.getAdress()}</td>

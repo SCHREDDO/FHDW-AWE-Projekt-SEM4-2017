@@ -70,7 +70,7 @@
 		<label for="phone_number">Telephon</label>
         <input type="text" name="phone_number" value="{person.getPhone_number()}"/> <br/>
         <select name="pid">
-		c:forEach items="${permission}" var="permission">
+		<c:forEach items='${permission}' var='permission'>
 			<c:choose>
 				<c:when test="${permission.getRiid() == person.getRight().getRiid()}">
 					<option value="${permission.getRiid()}" selected="selected">${permission.getName()}</</option>

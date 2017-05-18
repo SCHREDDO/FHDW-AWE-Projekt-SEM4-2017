@@ -58,6 +58,9 @@
 
     </div>
 </nav>
+
+<c:choose>
+	<c:when test="${rpid == '1'}">
 <form action="http://localhost:8080/Personen/Create" method="get">
     <fieldset>
         <%= request.getParameter("permissions")  %>
@@ -84,6 +87,8 @@
         <input type="submit" value="submit">
     </fieldset>
 </form>
+	</c:when>
+</c:choose>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -106,7 +111,7 @@
     <%= request.getParameter("poersons")  %>
     <c:forEach items="${poersons}" var="poersons">
     	<tr>
-    		<th scope="row">${poersons.getStid()}</th>      
+    		<th scope="row"><a href="http://localhost:8080/Verwaltung/Show?peid=${poersons.getPeid()}">${poersons.getStid()}</a></th>      
 	        <td>${poersons.getFirstname()} ${poersons.getLarstname()}</td>
 	        <td>${poersons.getShortname()}</td>
 	        <td>${poersons.getAdress()}</td>

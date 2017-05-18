@@ -36,6 +36,7 @@ public class ModulController extends HttpServlet
 			}
 			
 			req.setAttribute("moduls", moduls);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Module.jsp").forward(req, resp);
 		}

@@ -54,6 +54,7 @@ public class StudentController extends HttpServlet
 			req.setAttribute("students", students);
 			req.setAttribute("studygroups", studygroups);
 			req.setAttribute("persons", persons);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Studenten.jsp").forward(req, resp);
 		}

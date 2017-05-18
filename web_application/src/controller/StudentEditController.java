@@ -43,7 +43,7 @@ public class StudentEditController extends HttpServlet{
 			
 			Student student = new Student();
 			
-			List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.student, Integer.parseInt(req.getParameter("")));
+			List<Object[]> objs = db.getObjectDataByID(DBAccessJDBCSQLite.TableName.student, Integer.parseInt(req.getParameter("stid")));
 			
 			student = cac.ConvertToStudento(objs.get(0));
 			

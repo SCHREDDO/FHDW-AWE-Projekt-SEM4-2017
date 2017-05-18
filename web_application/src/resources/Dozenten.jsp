@@ -49,7 +49,10 @@
 
     </div>
 </nav>
-<form action="http://localhost:8080/Create" method="get">
+
+<c:choose>
+	<c:when test="${rpid == '1'}">
+<form action="http://localhost:8080/Dozenten/Create" method="get">
     <fieldset>
 		<%= request.getParameter("persons")  %>
         <legend></legend>
@@ -65,6 +68,8 @@
         <input type="submit" value="submit">
     </fieldset>
 </form>
+	</c:when>
+</c:choose>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -91,7 +96,7 @@
     
     <c:forEach items="${lecturers}" var="lecturers">
     	<tr>
-    		<th scope="row">${lecturers.getLeid()}</th>
+    		<th scope="row"><a href="http://localhost:8080/Dozenten/Show?leid=${lecturers.getLeid()}">${lecturers.getLeid()}</a></th>
     		<td>${lecturers.getFirstname()} ${students.getLarstname()}</td> 
 	        <td>${lecturers.getShortname()}</td>
 	        <td>${lecturers.getIs_honouree_lecturer()}</td>

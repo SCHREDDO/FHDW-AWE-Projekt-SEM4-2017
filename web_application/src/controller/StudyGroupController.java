@@ -36,6 +36,7 @@ public class StudyGroupController extends HttpServlet
 			}
 			
 			req.setAttribute("studygroups", studygroups);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Kurse.jsp").forward(req, resp);
 		}

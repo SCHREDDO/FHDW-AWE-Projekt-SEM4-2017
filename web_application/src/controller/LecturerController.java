@@ -44,6 +44,7 @@ public class LecturerController extends HttpServlet
 			
 			req.setAttribute("lecturers", lecturers);
 			req.setAttribute("persons", persons);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Dozenten.jsp").forward(req, resp);
 		}

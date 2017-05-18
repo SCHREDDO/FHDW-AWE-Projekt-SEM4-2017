@@ -43,6 +43,7 @@ public class AdministrationEmployeeController  extends HttpServlet
 			
 			req.setAttribute("administrationemployees", administrationemployees);
 			req.setAttribute("persons", persons);
+			req.setAttribute("rpid", user.getPid());
 			
 			getServletContext().getRequestDispatcher("/Vervaltung.jsp").forward(req, resp);
 		}

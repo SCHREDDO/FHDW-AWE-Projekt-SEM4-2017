@@ -49,6 +49,9 @@
 
     </div>
 </nav>
+
+<c:choose>
+	<c:when test="${rpid == '1'}">
 <form action="http://localhost:8080/Module/Create" method="get">
     <fieldset>
         <legend></legend>
@@ -61,6 +64,8 @@
         <input type="submit" value="submit">
     </fieldset>
 </form>
+	</c:when>
+</c:choose>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -82,7 +87,7 @@
     <%= request.getParameter("moduls")  %>
     <c:forEach items="${moduls}" var="moduls">
     	<tr>
-    		<th scope="row">${moduls.getMoid()}</th>      
+    		<th scope="row"><a href="http://localhost:8080/Module/Show?moid=${moduls.getMoid()}">${moduls.getMoid()}</a></th>      
 	        <td>${moduls.getName()}</td>
 	        <td>${moduls.getShortname()}</td>
 	        <td>${moduls.getCreditpoints()}</td>
