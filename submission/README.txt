@@ -4,7 +4,7 @@ SQLScript.txt: verwendetes Scrip zur erstellung
 *.png: Screenshots der laufenden Anwendung
 
 - Die Datei database in den Ordner /SQLite plaziren.(root path/homeverzeichnis)
-- web_application.jar Starten
+- verschieben der web_application.jar auf den PC und Starten 
 - mit einen Webbrowser die Seite http://localhost:8080/Startseite ansteuern.
 
 Login Daten:
@@ -16,6 +16,6 @@ Normaler User Account
 E-mail:ral@b.de
 Password:abc
 
-Hinweiﬂ: Bei den Ansichten kann man auf die ID Klicken die dan zu weitern Information f¸hren.
+Hinwei√ü: Bei den Ansichten kann man auf die ID Klicken die dan zu weitern Information f√ºhren.
 
 GitHub Link: https://github.com/SCHREDDO/FHDW-AWE-Projekt-SEM4-2017
