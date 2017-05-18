@@ -3,7 +3,7 @@ database: die SQLite Datenbank
 SQLScript.txt: verwendetes Scrip zur erstellung
 *.png: Screenshots der laufenden Anwendung
 
-- Die Datei database in den Ordner /SQLite plaziren.(root path/homeverzeichnis)
+- Die Datei database in den Ordner /SQLite plaziren.(root path)
 - verschieben der web_application.jar auf den PC und Starten 
 - mit einen Webbrowser die Seite http://localhost:8080/Startseite ansteuern.
 
