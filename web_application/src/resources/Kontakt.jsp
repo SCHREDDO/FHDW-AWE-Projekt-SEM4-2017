@@ -27,8 +27,12 @@
                 <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Studierende</a> </li>
-                        <li><a href="#">Dozenten</a> </li>
+                        <li><a href="http://localhost:8080/Studenten">Studierenden</a> </li>
+                        <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
+						<li><a href="http://localhost:8080/Personen">Personen</a></li>
+						<li><a href="http://localhost:8080/Verwaltung">Verwaltung</a></li>
+						<li><a href="http://localhost:8080/Kurse">Kurse</a> </li>
+						<li><a href="http://localhost:8080/Module">Module</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="#">Kontakt</a></li>

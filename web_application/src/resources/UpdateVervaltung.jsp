@@ -49,21 +49,6 @@
 
     </div>
 </nav>
-<form action="EditDozent" method="get">
-    <fieldset>
-        <legend></legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="text" name="email" /> <br/>
-        <select name="Kurs">
-            <option value="1">Kurs</option>
-        </select>
-        <input type="submit" value="submit">
-    </fieldset>
-</form>
 
 
 

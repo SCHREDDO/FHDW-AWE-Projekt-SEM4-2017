@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FHDW-Studentenverwaltung Studierende</title>
+    <title>FHDW-Studentenverwaltung Dozent</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -29,7 +29,7 @@
                 <li><a href="http://localhost:8080/Startseite">Startseite</a></li>
                 <li class="active" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verwaltung<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost:8080/Studenten">Studierenden</a> </li>
+                        <li><a href="http://localhost:8080/Studenten">Studierende</a> </li>
                         <li><a href="http://localhost:8080/Dozenten">Dozenten</a> </li>
 						<li><a href="http://localhost:8080/Personen">Personen</a></li>
 						<li><a href="http://localhost:8080/Verwaltung">Verwaltung</a></li>

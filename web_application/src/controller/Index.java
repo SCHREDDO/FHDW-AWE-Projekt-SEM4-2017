@@ -40,12 +40,12 @@ public class Index {
 		contect.addServlet(StudentDeleteController.class, "/Studenten/Delete");
 		contect.addServlet(StudentShowController.class, "/Studenten/Show");
 		
-		contect.addServlet(AdministrationEmployeeController.class, "/Studenten");
-		contect.addServlet(AdministrationEmployeeCreateController.class, "/Studenten/Create");
-		contect.addServlet(AdministrationEmployeeEditController.class, "/Studenten/Edit");
-		contect.addServlet(AdministrationEmployeeUpdateController.class, "/Studenten/Update");
-		contect.addServlet(AdministrationEmployeeDeleteController.class, "/Studenten/Delete");
-		contect.addServlet(AdministrationEmployeeShowController.class, "/Studenten/Show");
+		contect.addServlet(AdministrationEmployeeController.class, "/Verwaltung");
+		contect.addServlet(AdministrationEmployeeCreateController.class, "/Verwaltung/Create");
+		contect.addServlet(AdministrationEmployeeEditController.class, "/Verwaltung/Edit");
+		contect.addServlet(AdministrationEmployeeUpdateController.class, "/Verwaltung/Update");
+		contect.addServlet(AdministrationEmployeeDeleteController.class, "/Verwaltung/Delete");
+		contect.addServlet(AdministrationEmployeeShowController.class, "/Verwaltung/Show");
 		
 		
 		contect.addServlet(PersonController.class, "/Person");
