@@ -17,5 +17,3 @@ E-mail:ral@b.de
 Password:abc
 
 Hinweiß: Bei den Ansichten kann man auf die ID Klicken die dan zu weitern Information führen.
-
-GitHub Link: https://github.com/SCHREDDO/FHDW-AWE-Projekt-SEM4-2017
